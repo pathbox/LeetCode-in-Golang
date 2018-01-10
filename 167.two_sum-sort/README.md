@@ -9,8 +9,6 @@ You may assume that each input would have exactly one solution and you may not u
 Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
 
-关联 [1.Two Sum](./1.two-sum)
-
 1. Two pointer 方法
 
 由于 给定的array数组是已经按从小到达排序了的（从达到小排序也可以，思路是类似的），有了顺序，这是一个必要条件
@@ -37,3 +35,5 @@ nums := []int{1, 2, 3, 4, 4, 9, 56, 90}
 target := 8
 
 所以，有了一个小tip进行了弥补
+
+3. 关联 [1.Two Sum](./1.two-sum)
