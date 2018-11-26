@@ -15,7 +15,7 @@ func twoSum(nums []int, target int) []int {
 			// 注意，顺序是j，i，因为j<i
 		}
 
-		// 如果没有找到，把i和i的值，存入map，构造map。map一开始是空的。
+		// 如果没有找到，把i和i的值(a)，存入map，构造map。map一开始是空的。
 		m[nums[i]] = i
 	}
 
