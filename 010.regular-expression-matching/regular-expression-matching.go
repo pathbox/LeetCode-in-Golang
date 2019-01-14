@@ -10,9 +10,9 @@ func isMatch(s string, p string) bool {
 	}
 	// 构造了一个二维数组(矩阵)
 
-	dp[0][0] = true
+	dp[0][0] = true // 表示 s 和 p是空串时，匹配成功
 
-	for i := 2; i < len(dp); i += 2 {
+	for i := 2; i < len(dp); i += 2 { // 专门对 *条件匹配，* 条件前面一定会有一个字符，所以用的索引和增长的索引值是2，而不是1。如果i的前面是*，i位设为true
 		if p[i-1] == '*' {
 			dp[i][0] = true
 		} else {
