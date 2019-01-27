@@ -1,0 +1,15 @@
+/log
+/.vscode
+/.idea
+config.ini
+*.swp
+*.bak
+*.tgz
+*.zip
+*.tar
+*.rar
+logs
+.tern*
+*.log
+main
+.DS_Store
