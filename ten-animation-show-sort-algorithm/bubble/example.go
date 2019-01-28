@@ -4,10 +4,12 @@ import "fmt"
 
 func main() {
 	arr := []int{5, 2, 3, 8, 4}
-	fmt.Println(arr)
+	fmt.Println("Before sort: ", arr)
 	r := BubbleSort(arr)
-	fmt.Println(r)
-
+	fmt.Println("After sort: ", r)arr := []int{5, 2, 3, 8, 4}
+	fmt.Println("Before sort: ", arr)
+	r := BubbleSort(arr)
+	fmt.Println("After sort: ", r)
 }
 
 func BubbleSort(ary []int) []int {
