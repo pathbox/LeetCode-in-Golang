@@ -40,10 +40,8 @@ func ShellSort(list []int) []int {
 
 func insertionSortByStep(tree []int, step int) {
 	for i := step; i < len(tree); i++ {
-		for i := step; i < len(tree); i++ {
-			for j := i; j >= step && tree[j] < tree[j-step]; j -= step {
-				tree[j], tree[j-step] = tree[j-step], tree[j]
-			}
+		for j := i; j >= step && tree[j] < tree[j-step]; j -= step {
+			tree[j], tree[j-step] = tree[j-step], tree[j]
 		}
 	}
 }
