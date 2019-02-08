@@ -39,7 +39,7 @@ func MergeSort(arr []int, l int, r int) {
 		return
 	}
 
-	// 递归向下
+	// 递归向下 不断的 /2直到一个元素位置返回
 	mid := (r + l) / 2
 	MergeSort(arr, l, mid)
 	MergeSort(arr, mid+1, r)
