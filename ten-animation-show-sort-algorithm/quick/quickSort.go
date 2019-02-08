@@ -10,7 +10,7 @@ func QuickSort(left, right int, ary []int) []int {
 	j = right
 	temp = ary[left] // 以left为基准值
 
-	for i != j {
+	for i != j { // 在i j没有相遇之前，会不断的进行i j值的交换
 		for ary[j] >= temp && i < j {
 			j-- // 右边的索引开始不断移动
 		}
