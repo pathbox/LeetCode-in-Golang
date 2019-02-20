@@ -1,4 +1,4 @@
-package Problem010
+package LeetCode010
 
 // "*" 不会出现在p的首位
 // "**" 不会出现，但会出现 ".*."" , ".*.." , ".*.*"

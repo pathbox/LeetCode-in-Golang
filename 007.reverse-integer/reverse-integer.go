@@ -1,4 +1,4 @@
-package Problem007
+package LeetCode007
 
 import "math"
 

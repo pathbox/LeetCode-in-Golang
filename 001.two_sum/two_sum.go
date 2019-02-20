@@ -1,4 +1,4 @@
-package Problem001
+package LeetCode001
 
 func twoSum(nums []int, target int) []int {
 	// m: m[值]值的index

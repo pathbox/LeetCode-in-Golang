@@ -1,4 +1,4 @@
-// package Problem167
+// package LeetCode167
 package main
 
 import "fmt"

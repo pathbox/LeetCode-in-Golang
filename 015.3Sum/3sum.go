@@ -1,4 +1,4 @@
-// package Problem15
+// package LeetCode15
 package main
 
 import (

@@ -1,4 +1,4 @@
-package Problem009
+package LeetCode009
 
 import "strconv"
 

@@ -7,7 +7,7 @@ func InsertSort(ary []int) []int {
 		tmp := ary[i]
 		// 从已经排序的序列最右边的开始比较，找到比其小的数
 		j := i
-		for j > 0 && tmp < ary[j-1] {
+		for j > 0 && tmp < ary[j-1] { // j > 0: 遍历到第二个元素就行
 			ary[j] = ary[j-1]
 			j--
 		}

@@ -1,4 +1,4 @@
-package Problem002
+package LeetCode002
 
 // linked list
 type ListNode struct {

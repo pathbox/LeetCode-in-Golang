@@ -1,4 +1,4 @@
-# [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
+# [10. Regular Expression Matching](https://leetcode.com/LeetCodes/regular-expression-matching/)
 
 ## 题目
 Implement regular expression matching with support for '.' and '*'.

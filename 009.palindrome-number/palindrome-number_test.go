@@ -1,4 +1,4 @@
-package Problem009
+package LeetCode009
 
 import (
 	"testing"
@@ -19,7 +19,7 @@ type ans struct {
 	one bool
 }
 
-func Test_Problem0009(t *testing.T) {
+func Test_LeetCode0009(t *testing.T) {
 	ast := assert.New(t)
 
 	qs := []question{
