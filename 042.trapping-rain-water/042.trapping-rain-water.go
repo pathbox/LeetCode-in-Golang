@@ -1,4 +1,4 @@
-package LeetCode0042
+package LeetCode042
 
 func min(a, b int) int {
 	if a < b {
@@ -16,6 +16,7 @@ func max(a, b int) int {
 
 func trap(height []int) int {
 	length := len(height)
+	bar := 1
 	if length <= 2 {
 		return 0 // 至少要三个点菜能储水
 	}
@@ -34,8 +35,7 @@ func trap(height []int) int {
 	water := 0
 	for i := 0; i < length; i++ {
 		// 存水量取决于 左右最大值 中的较小值
-		water += min(left[i], right[i]) - height[i]
-	}
+		water += min(left[i], right[i]) - height[i]*bar
 
 	return water
 

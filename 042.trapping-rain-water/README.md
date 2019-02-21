@@ -12,6 +12,8 @@ The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In th
 ## 解题思路
 解题的关键有两点
 1. 理解 i 点的存水量为 min(max(height[:i+1]...), max(height[i:]...)) - height[i]
+
+盛水量 == (min(leftHeight[i], rightHeight[i]) - height[i]) * 1  1为bar宽度
 2. 高效地找到 max(height[:i+1]...) 和 max(height[i:]...)
 
 ## 总结
