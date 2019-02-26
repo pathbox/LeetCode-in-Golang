@@ -17,12 +17,12 @@ func trap2(height []int) int {
 			max = v
 			maxIdx = i
 		}
-		leftMax[i] = maxIdx
+		leftMax[i] = maxIdx // 0..i为止maxIdx
 	}
 
 	max = 0
 	maxIdx = len(height) - 1
-	for i := len(height) - 1; i >= 0; i-- {
+	for i := len(height) - 1; i >= 0; i-- { // 从右往左循环 i..length-1为止maxIdx
 		if height[i] > max {
 			max = height[i]
 			maxIdx = i
