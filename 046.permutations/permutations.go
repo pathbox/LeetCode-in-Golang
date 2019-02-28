@@ -27,7 +27,7 @@ func makePermutation(cur, n int, nums, vector []int, taken []bool, ans *[][]int)
 			// 准备使用 nums[i]，所以，taken[i] == true
 			taken[i] = true
 			// NOTICE: 是 vector[cur]
-			vector[cur] = nums[i]
+			vector[cur] = nums[i] // cur的理解很重要
 
 			makePermutation(cur+1, n, nums, vector, taken, ans)
 
@@ -38,3 +38,5 @@ func makePermutation(cur, n int, nums, vector []int, taken []bool, ans *[][]int)
 		}
 	}
 }
+
+// 每到cur位置，从nums中选出一个没有被taken的数，放到cur位置，当一组情况满足返回后
