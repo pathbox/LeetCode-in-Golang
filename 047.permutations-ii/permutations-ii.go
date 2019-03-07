@@ -1,6 +1,10 @@
-package LeetCode046
+package LeetCode047
 
-func permute(nums []int) [][]int {
+import "sort"
+
+func permuteUnique(nums []int) [][]int {
+	sort.Ints(nums)
+
 	n := len(nums)
 	// vector 是一组可能的解答
 	vector := make([]int, n)
@@ -15,19 +19,24 @@ func permute(nums []int) [][]int {
 }
 
 func makePermutation(cur, n int, nums, vector []int, taken []bool, ans *[][]int) {
-	if cur == n { // 当前索引==数组长度，说明这一组比较到了最后
+	if cur == n {
 		tmp := make([]int, n)
 		copy(tmp, vector)
 		*ans = append(*ans, tmp)
 		return
 	}
 
+	used := make(map[int]bool, n-cur)
+
 	for i := 0; i < n; i++ {
-		if !taken[i] {
+
+		if !taken[i] && !used[nums[i]] {
+			used[nums[i]] = true
+
 			// 准备使用 nums[i]，所以，taken[i] == true
 			taken[i] = true
 			// NOTICE: 是 vector[cur]
-			vector[cur] = nums[i] // cur的理解很重要
+			vector[cur] = nums[i]
 
 			makePermutation(cur+1, n, nums, vector, taken, ans)
 
@@ -38,5 +47,3 @@ func makePermutation(cur, n int, nums, vector []int, taken []bool, ans *[][]int)
 		}
 	}
 }
-
-// 每到cur位置，从nums中选出一个没有被taken的数，放到cur位置，当一组情况满足返回后
