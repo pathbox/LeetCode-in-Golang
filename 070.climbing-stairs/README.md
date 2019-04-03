@@ -9,4 +9,17 @@ Note: Given n will be a positive integer.
 
 ## 解题思路
 
+```
+func climbStairs_recursion(n int) int {
+	if n < 0 {
+		return 0
+	}
 
+	if n < 2 {  // 返回条件
+		return 1
+	}
+
+	r := climbStairs(n-1) + climbStairs(n-2) // 爬到n处，可能是从n-1处过来的，也可能是从n-2处过来的
+	return r
+}
+```
