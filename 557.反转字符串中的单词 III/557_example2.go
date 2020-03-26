@@ -7,8 +7,8 @@ func reverseWords(s string) string {
 	fmt.Println(array)
 	start := 0
 	for i := 0; i < len(array); i++ {
-		if array[i] == ' ' {
-			reverse(array, start, i-1)
+		if array[i] == ' ' { // 此时 array[:i]是一个单词
+			reverse(array, start, i-1) // 进行该单词的头尾交换
 			start = i + 1
 		}
 	}
