@@ -7,7 +7,7 @@ func minimumLengthEncoding(words []string) int {
 	sort.Sort(ByLength(words))
 	res := 0
 	for _, i := range words {
-		if _, ok := suffix[i]; ok {
+		if _, ok := suffix[i]; ok { // 如果该单词是一个后缀，则进行过滤，res长度不变化
 			continue
 		} else {
 			res += len(i) + 1
