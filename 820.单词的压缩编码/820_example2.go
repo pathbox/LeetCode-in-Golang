@@ -52,3 +52,6 @@ func findLeaf(root *node, length int) int {
 	}
 	return sum
 }
+
+// 使用字典树解决后缀重复（单词要反转）
+// 统计的结果是字典树的叶节点的高度+1 之和
