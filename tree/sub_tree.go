@@ -34,7 +34,7 @@ func judge(root1 *TreeNode, root2 *TreeNode) bool {
 		return false // A 为母树，节点比root2先递归完说明root1比root2小，root2不可能为root1的子树
 	}
 	if root1.val == root2.val {
-		return judge(root1.left, right.left) && judge(root1.right, root2.right)
+		return judge(root1.left, root2.left) && judge(root1.right, root2.right)
 	}
 
 	return false
