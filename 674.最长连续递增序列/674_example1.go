@@ -5,7 +5,7 @@ func findLengthOfLCIS(nums []int) int {
 		return len(nums)
 	}
 	ans, count := 1, 1
-	for i := 0; i < len(nums); i++ {
+	for i := 0; i < len(nums)-1; i++ {
 		if nums[i+1] > nums[i] { // 不断的进行递增比较
 			count++
 		} else {
