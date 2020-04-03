@@ -55,6 +55,7 @@ func newNode(key int) *Node {
 	}
 }
 
+// 插入时，会遍历Bucket这条链上链表，判断key是否已存在，存在不做操作，不存在，加到到链表末尾
 func (b *Bucket) insert(key int) {
 	cur := b.Head.Next
 	Niobe := newNode(key)
