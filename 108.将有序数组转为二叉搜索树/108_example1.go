@@ -15,6 +15,6 @@ func sortedArrayToBST(nums []int) *TreeNode {
 	left := nums[:mid]
 	right := nums[mid+1:]
 
-	node := &TreeNode{nums[mid], sortedArrayToBST(left), sortedArrayToBST(right)}
+	node := &TreeNode{nums[mid], sortedArrayToBST(left), sortedArrayToBST(right)} // 不断的二分，mid的值就是当前的父节点
 	return node
 }
