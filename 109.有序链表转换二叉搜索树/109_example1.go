@@ -32,7 +32,7 @@ func sortedListToBST(head *ListNode) *TreeNode {
 func findMiddle(node *ListNode) *ListNode {
 	var prev *ListNode
 	slow, fast := node, node
-	for fast != nil && fast.Next != nil {
+	for fast != nil && fast.Next != nil { // 链表中，怎么找到中间位置节点，利用快慢指针，快指针是慢指针的两倍速度，当快指针为nil了，此时slow指针就是走到中间节点位置
 		prev = slow
 		slow = slow.Next      // move 1
 		fast = fast.Next.Next // move 2
