@@ -32,9 +32,9 @@ func helper(root *TreeNode, nums *[]int, cur, max *int, pre **TreeNode) {
 	}
 	if *cur > *max {
 		*max = *cur
-		*nums = []int{}
+		*nums = []int{} // 重新生成nums数组
 		*nums = append(*nums, root.Val)
-	} else if *cur == *max {
+	} else if *cur == *max { // 把root.Val值接入到当前数组中，这样 可能会有多个众数，而不是唯一众数
 		*nums = append(*nums, root.Val)
 	}
 	(*pre) = root // 当前节点赋值给pre前一个指针
