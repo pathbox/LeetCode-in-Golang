@@ -6,6 +6,10 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+/*
+时间复杂度：O(n)O(n)。递归函数 T(n) = 2 \cdot T(n/2)+1T(n)=2⋅T(n/2)+1。
+空间复杂度：最坏情况下需要空间O(n)O(n)，平均情况为O(log n)O(logn)
+*/
 func inorderTraversal(root *TreeNode) []int {
 	nums := make([]int, 0)
 	dfs(root, &nums)
