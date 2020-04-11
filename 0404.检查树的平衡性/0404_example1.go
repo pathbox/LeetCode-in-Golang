@@ -17,7 +17,7 @@ func isBalancedHelper(root *TreeNode) int {
 	l := isBalancedHelper(root.Left)
 	r := isBalancedHelper(root.Right)
 	if l != -1 && r != -1 && abs(l-r) <= 1 {
-		return max(l, r) + 1
+		return max(l, r) + 1 // 求树的高度就是遍历左子树和右子树，求左右子树最大的高度+1
 	}
 	return -1
 }
