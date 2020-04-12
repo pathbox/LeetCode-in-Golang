@@ -21,8 +21,11 @@ func dfs(start, end int) []*TreeNode {
 	}
 
 	for i := start; i <= end; i++ { // 循环start-end的整数
-		for _, l := range dfs(start, i-1) {
-			for _, r := range dfs(i+1, end) {
+		leftTree := dfs(start, i-1)
+		rightTree := dfs(i+1, end)
+
+		for _, l := range leftTree {
+			for _, r := range rightTree {
 				cur := &TreeNode{
 					Val: i,
 				}
