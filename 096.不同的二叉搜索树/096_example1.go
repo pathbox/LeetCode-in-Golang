@@ -5,7 +5,7 @@ func numTrees(n int) int {
 	dp[0] = 1
 	dp[1] = 1
 
-	for i := 2; i < n+1; i++ {
+	for i := 2; i < n+1; i++ { // 0、1已经计算完了
 		for j := 1; j < i+1; j++ {
 			dp[i] += dp[j-1] * dp[i-j]
 		}
