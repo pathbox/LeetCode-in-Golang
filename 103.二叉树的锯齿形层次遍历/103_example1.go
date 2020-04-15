@@ -1,4 +1,4 @@
-package LeetCode102
+package LeetCode103
 
 type TreeNode struct {
 	Val   int
@@ -28,7 +28,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 			}
 
 			counter--
-
+			// 双端队列
 			if level%2 != 0 { // level 是偶数 cur，从队列尾部取，表示从右边Z字形遍历，level是奇数，cur是从头部小数索引位置取
 				cur = counter
 			}
