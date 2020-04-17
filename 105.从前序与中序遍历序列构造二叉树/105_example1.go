@@ -10,7 +10,7 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	if len(preorder) == 0 || len(inorder) == 0 {
 		return nil
 	}
-	// 中顺序列找根节点
+	// 中顺序列找根节点，前序数组用于定位每个子树的根节点，中序数组根据这个根节点分成左右子树部分
 	var root int
 	for k, v := range inorder {
 		if v == preorder[0] {
