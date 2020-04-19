@@ -39,7 +39,7 @@ func (this *Codec) serialize(root *TreeNode) string {
 }
 
 // Deserializes your encoded data to tree.
-func (this *Codec) deserializes(data string) *TreeNode {
+func (this *Codec) deserialize(data string) *TreeNode {
 	if len(data) == 0 {
 		return nil
 	}

@@ -28,8 +28,8 @@ func (this *Codec) serialize(root *TreeNode) string {
 	return strconv.Itoa(root.Val) + "," + this.serialize(root.Left) + "," + this.serialize(root.Right)
 }
 
-// Deserializes your encoded data to tree.
-func (this *Codec) deserializes(data string) *TreeNode {
+// Deserialize your encoded data to tree.
+func (this *Codec) deserialize(data string) *TreeNode {
 	this.res = strings.Split(data, ",")
 	return this.dfsDeserialize()
 }
