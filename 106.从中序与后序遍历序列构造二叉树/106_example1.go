@@ -9,7 +9,7 @@ type TreeNode struct {
 func buildTree(inorder []int, postorder []int) *TreeNode {
 	l := len(postorder) - 1
 	for k := range inorder {
-		if inorder[k] == postorder[l] {
+		if inorder[k] == postorder[l] { // postorder的最后一个值为每个子树的root
 			return &TreeNode{
 				Val:   inorder[k],
 				Left:  buildTree(inorder[:k], postorder[:k]),
@@ -30,5 +30,5 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 
 https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/cong-zhong-xu-yu-hou-xu-bian-li-xu-lie-gou-zao-e-5/
 
-https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/tu-jie-gou-zao-er-cha-shu-wei-wan-dai-xu-by-user72/
+nice: https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/solution/tu-jie-gou-zao-er-cha-shu-wei-wan-dai-xu-by-user72/
 */
