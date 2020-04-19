@@ -18,6 +18,7 @@ func Constructor() Codec {
 	return Codec{}
 }
 
+//bfs
 // Serializes a tree to a single string.
 func (this *Codec) serialize(root *TreeNode) string {
 	if root == nil {
