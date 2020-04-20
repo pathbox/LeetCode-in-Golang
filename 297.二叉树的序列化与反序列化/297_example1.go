@@ -58,8 +58,8 @@ func (this *Codec) deserialize(data string) *TreeNode {
 
 		if res[1] != "#" {
 			r, _ := strconv.Atoi(res[1])
-			queue[1].Right = &TreeNode{Val: r}
-			queue = append(queue, queue[1].Right)
+			queue[0].Right = &TreeNode{Val: r}
+			queue = append(queue, queue[0].Right)
 		}
 		queue = queue[1:] // 当前节点分析完，出队列
 		res = res[2:]
