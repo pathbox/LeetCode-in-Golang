@@ -12,6 +12,7 @@ func connect(root *Node) *Node {
 	return root
 }
 
+// 左节点不断往右，右节点不断往左，像拉链一样拉紧
 func dfs(root *Node) {
 	if root == nil {
 		return
