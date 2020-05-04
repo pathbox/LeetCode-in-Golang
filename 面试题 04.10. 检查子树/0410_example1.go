@@ -15,9 +15,10 @@ func checkSubTree(t1 *TreeNode, t2 *TreeNode) bool {
 		return false
 	}
 
-	if t1.Val != t2.Val {
+	if t1.Val != t2.Val { // 当前节点的值不相等
 		return checkSubTree(t1.Left, t2) || checkSubTree(t1.Right, t2) // t1从左右子树继续与t2比较
 	}
+	// 当前节点的值相等，继续同时同子树方向移动
 	return checkSubTree(t1.Right, t2.Right) && checkSubTree(t1.Left, t2.Left) // 以当前节点为root节点，继续比较左右子树节点
 }
 
