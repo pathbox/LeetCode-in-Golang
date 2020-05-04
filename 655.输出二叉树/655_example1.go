@@ -46,7 +46,7 @@ func fill(root *TreeNode, ans *[][]string, h, l, r int) {
 	if root == nil {
 		return
 	}
-	mid := (l + r) / 2
+	mid := (l + r) / 2 // mid列的位置
 	(*ans)[h][mid] = strconv.Itoa(root.Val)
 	fill(root.Left, ans, h+1, l, mid-1)
 	fill(root.Right, ans, h+1, mid+1, r)
