@@ -1,11 +1,5 @@
 package LeetCode1104
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func pathInZigZagTree(label int) []int {
 	// 构造树的深度
 	curMax, tree := 0, []int{}
