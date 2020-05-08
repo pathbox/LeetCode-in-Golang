@@ -25,7 +25,7 @@ func helper(S string, L *[]string) {
 			*L = append(*L, (*L)[i])                 // 复制操作
 			(*L)[i] += strings.ToLower(string(S[0])) // 给前半部分每个元素末尾加上小写字符
 		}
-		for i := length; i < Len(*L); i++ {
+		for i := length; i < len(*L); i++ {
 			(*L)[i] += strings.ToUpper(string(S[0])) // 给前半部分每个元素末尾加上大写字符
 		}
 	}
