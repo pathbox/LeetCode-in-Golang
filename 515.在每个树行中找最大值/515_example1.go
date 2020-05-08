@@ -22,6 +22,7 @@ func largestValues(root *TreeNode) []int {
 			if max < queue[i].Val {
 				max = queue[i].Val
 			}
+			// 将当前节点的左右子节点加入队列，其实就是下一层遍历的节点
 			if queue[i].Left != nil {
 				queue = append(queue, queue[i].Left)
 			}
