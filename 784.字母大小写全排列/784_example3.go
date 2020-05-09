@@ -15,7 +15,7 @@ func letterCasePermutation(S string) []string {
 		var tmp string
 		for _, v := range S {
 			if isLetter(byte(v)) {
-				if (j>>c)&1 == 1 { //按位判断该连接大写还是小写字母
+				if (j>>c)&1 == 1 { //按位判断该连接大写还是小写字母  掩码的方法 大写小写 0 1
 					tmp += strings.ToLower(string(v))
 				} else {
 					tmp += strings.ToUpper(string(v))
