@@ -20,7 +20,7 @@ func generate(i int, nums []int, item *[]int, result *[][]int) {
 	}
 	*result = append(*result, temp)
 	generate(i+1, nums, item, result)
-	*item = (*item)[:len(*item)-1]
+	*item = (*item)[:len(*item)-1] // 回溯
 	generate(i+1, nums, item, result)
 	return
 }
