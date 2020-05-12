@@ -1,5 +1,6 @@
 package LeetCode062
 
+// dfs 递归方法 容易超时
 func uniquePaths(m int, n int) int {
 	cnt := 0
 	var dfs func(x, y int)
