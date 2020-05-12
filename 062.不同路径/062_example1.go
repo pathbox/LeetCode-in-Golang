@@ -1,5 +1,6 @@
 package LeetCode062
 
+// dp 用一个一维数组存储
 func uniquePaths(m int, n int) int {
 	if m == 1 && n == 1 {
 		return 1
