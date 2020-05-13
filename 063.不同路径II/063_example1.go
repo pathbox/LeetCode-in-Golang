@@ -18,7 +18,7 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 		for j := 0; j < n; j++ {
 			if i == 0 && j == 0 {
 				dp[i][j] = 1
-			} else if i == 0 && j != 0 {
+			} else if i == 0 && j != 0 { // 如果有障碍物，则说明后面的格子也无法到达，直接退出循环
 				if obstacleGrid[i][j] == 0 {
 					dp[i][j] = dp[i][j-1]
 				}
