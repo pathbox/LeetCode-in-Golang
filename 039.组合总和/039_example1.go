@@ -10,7 +10,7 @@ func combinationSum(candidates []int, target int) [][]int {
 }
 
 func dfs(candidates, nums []int, target, start int, res *[][]int) {
-	if target == 0 { // 满足条件
+	if target == 0 { // 满足条件 结算
 		tmp := make([]int, len(nums))
 		copy(tmp, nums) //深度拷贝
 		*res = append(*res, tmp)
