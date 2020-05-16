@@ -28,3 +28,5 @@ func dfs(candidates, nums []int, target, start int, res *[][]int) {
 		dfs(candidates, append(nums, candidates[i]), target-candidates[i], i+1, res) //*分支 i+1避免重复
 	}
 }
+
+// [2,5,2,1,2], target = 5
