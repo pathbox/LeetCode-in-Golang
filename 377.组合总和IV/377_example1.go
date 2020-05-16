@@ -4,6 +4,7 @@ package LeetCode377
 动态规划
 dp[nums...] == 1
 dp[i] = dp[i] + dp[i - nums...]
+此题的状态转移方程为dp[i] = dp[i-nums[0]]+dp[i-nums[1]]+...dp[i-nums[len-1]],条件为i>=nums[j];
 */
 func combinationSum4(nums []int, target int) int {
 	return DP(nums, target)
@@ -11,7 +12,7 @@ func combinationSum4(nums []int, target int) int {
 
 func DP(nums []int, target int) int {
 	dp := make([]int, target+1)
-	for i := 1; i < target; i++ {
+	for i := 1; i <= target; i++ {
 		for _, val := range nums {
 			if i == val {
 				dp[i] += 1
