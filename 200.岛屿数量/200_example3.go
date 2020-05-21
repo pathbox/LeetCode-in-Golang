@@ -23,7 +23,7 @@ func numIslands(grid [][]byte) int {
 }
 
 func DFS(grid [][]byte, i, j int) {
-	if i > 0 || j > 0 || i >= len(grid) || j > len(grid[0]) || grid[i][j] != '1' { // 超过边界或者是水域或者已经遍历过
+	if i < 0 || j < 0 || i >= len(grid) || j >= len(grid[0]) || grid[i][j] != '1' { // 超过边界或者是水域或者已经遍历过
 		return
 	}
 
