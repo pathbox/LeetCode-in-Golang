@@ -26,9 +26,7 @@ func dfs(grid [][]int, x, y int) int {
 	h := len(grid)
 	w := len(grid[0])
 	var res int
-	if x < 0 || y < 0 || x >= w || y >= h {
-		return 0
-	}
+
 	if grid[x][y] == 1 {
 		grid[x][y] = 0 // 设为2也可以，只要不保持为1
 		// return 1 + dfs(grid, x-1, y) + dfs(grid, x+1, y) + dfs(grid, x, y-1) + dfs(grid, x, y+1) // 四个方向遍历累加
