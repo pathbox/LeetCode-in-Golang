@@ -20,3 +20,5 @@ func singleNumber(nums []int) []int {
 	}
 	return []int{x, x ^ resultNum} // 将某x与之前的结果再异或，能得到另一个数
 }
+
+// 时间复杂度：O(n) ,空间复杂度：O(1)
