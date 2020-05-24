@@ -11,16 +11,29 @@ package LeetCode137
 func singleNumber(nums []int) int {
 	var res int32
 	var i uint
-
 	for ; i < 32; i++ {
 		// 逐位考虑
 		var cnt uint
 		for k := 0; k < len(nums); k++ {
-			cnt += (uint(nums[k]) >> i) & i // 统计这一位出现1的次数
+			cnt += (uint(nums[k]) >> i) & 1 // 统计每个元素这一位出现1的次数
 		}
-		if cnt%3 != 0 { // 这一位出现的次数非3
-			res = res | (1 << i) // 把这一位记到结果的相应位
+		if cnt%3 != 0 { // 这一位的1出现非3次
+			res = res | (1 << i) // 把这一位记到结果的相应位，位数只有0/1
 		}
 	}
-	return int(res)
+	return int(res) // 返回32位完整的结果
 }
+/*
+func singleNumber(nums []int) int {
+	number, res := 0,0
+	for i :=0; i < 64; i++{
+		number = 0
+		for _, k := range nums {
+			number += (k >> i) & 1
+		}
+		res |= (number) % 3 << i
+	}
+	return res
+}
+
+*、
