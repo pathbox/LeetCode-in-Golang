@@ -1,5 +1,6 @@
 
 # https: // leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/solution/qian-zhui-shu-by-powcai/
+# https: // leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/solution/li-yong-yi-huo-yun-suan-de-xing-zhi-tan-xin-suan-f/
 # 异或运算其实就是 二进制下不进位的加法
 # 思路一：贪心
 
