@@ -32,7 +32,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			len2--
 			temp2 = stack2[len2]
 		}
-		prev.Next = &ListNode{(temp1 + temp2 + carry) % 10, prev.Next} // prev 节点保持不变，每次新的节点插入到prev和prev.Next之间，变为prev.Next
+		prev.Next = &ListNode{(temp1 + temp2 + carry) % 10, prev.Next} // prev 节点保持不变，每次新的节点插入到prev和prev.Next之间，变为prev.Next 插入到已存在节点的前面
 		carry = (temp1 + temp2 + carry) / 10
 	}
 	return prev.Next
