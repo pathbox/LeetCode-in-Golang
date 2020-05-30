@@ -6,7 +6,7 @@ type ListNode struct {
 }
 
 // 翻转链表法
-func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	node1 := reverse(l1)
 	node2 := reverse(l2)
 
@@ -23,7 +23,11 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			c = node2.Val
 			node2 = node2.Next
 		}
-		prev.Next = &ListNode{(b + c + a) % 10, prev.Next}
+		oldNext := prev.Next                        // 原来链表的next
+		newNode := &ListNode{(b + c + a) % 10, nil} // 将新节点插入到prev prev.Next之间
+		prev.Next = newNode
+		newNode.Next = oldNext
+		// prev.Next = &ListNode{(b + c + a) % 10, prev.Next}
 		a = (a + b + c) / 10 // 进位值
 	}
 
