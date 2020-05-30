@@ -6,7 +6,7 @@ func multiply(num1 string, num2 string) string {
 	}
 	l1, l2 := len(num1), len(num2)
 	l := l1 + l2
-	carry := make([]byte, 1)
+	carry := make([]byte, l)
 	for i := l1; i > 0; i-- {
 		index := l2 + i - 1
 		n1 := num1[i-1] - '0'
