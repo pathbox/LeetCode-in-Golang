@@ -4,7 +4,6 @@ import "sort"
 
 // 将数组排序后，再用双指针，前后移动进行比较, lastNum的方式可以只用一个指针
 
-// 原地置换 O(n) 空间O(1)
 func findRepeatNumber(nums []int) int {
 	sort.Ints(nums)
 	lastNum := nums[0]
