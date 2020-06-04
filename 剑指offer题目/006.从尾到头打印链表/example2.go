@@ -1,4 +1,4 @@
-
+package Offer006
 
 type ListNode struct {
 	Val  int
