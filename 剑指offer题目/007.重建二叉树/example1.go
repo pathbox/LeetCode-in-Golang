@@ -21,6 +21,7 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 		}
 	}
 	// 构造三个节点，三个节点为一个子树, 上面已经构造了root节点，下面是构造左右子树
+	// preorder[0]是根节点,inorder[index]是根节点 已经在上面使用
 	root.Left = buildTree(preorder[1:index+1], inorder[:index])   // 确定左子树
 	root.Right = buildTree(preorder[index+1:], inorder[index+1:]) // 确定右子树
 	return root
