@@ -14,7 +14,7 @@ func minArray(numbers []int) int {
 		}
 	}
 
-	if min != -1 { // 说明数组没有旋转
+	if min == -1 { // 说明数组没有旋转
 		min = numbers[0]
 	}
 
