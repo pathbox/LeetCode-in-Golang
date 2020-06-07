@@ -18,9 +18,9 @@ func dfs(m, n, i, j, k int, dp [][]int) int {
 	// 以当前格子上下左右出发寻找
 	sum := 1
 	sum += dfs(m, n, i, j+1, k, dp)
-	sum += dfs(m, m, i, j-1, k, dp)
-	sum += dfs(m, m, i+1, j, k, dp)
-	sum += dfs(m, m, i-1, j, k, dp)
+	sum += dfs(m, n, i, j-1, k, dp)
+	sum += dfs(m, n, i+1, j, k, dp)
+	sum += dfs(m, n, i-1, j, k, dp)
 	return sum
 }
 
