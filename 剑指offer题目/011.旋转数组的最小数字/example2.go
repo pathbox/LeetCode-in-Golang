@@ -1,5 +1,6 @@
 package Offer011
 
+// 对于有序数组 就要联想到 二分查找
 func minArray(numbers []int) int {
 	left := 0
 	right := len(numbers) - 1
