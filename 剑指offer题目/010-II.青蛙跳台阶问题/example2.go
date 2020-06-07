@@ -1,5 +1,6 @@
 package Offer010
 
+// 用前后指针两个数值也可以
 func numWays(n int) int {
 	if n == 0 || n == 1 {
 		return 1
