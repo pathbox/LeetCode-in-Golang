@@ -15,7 +15,7 @@ func isMatch(s string, p string) bool {
 	if len(p) == 0 {
 		return len(s) == 0
 	}
-	var first bool
+	var first bool                                   // 可以理解为首位，也可以理解为当前开始的匹配位
 	if len(s) > 0 && (s[0] == p[0] || p[0] == '.') { // 递归的一种条件情况
 		first = true
 	}

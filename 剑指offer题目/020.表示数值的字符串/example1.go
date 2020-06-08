@@ -13,6 +13,7 @@ var (
 	digit3 = 8 // 数字(0-9) 有e前缀
 )
 
+<<<<<<< HEAD
 /* 有限状态自动机
 空格 「 」、数字「 0—90—9 」 、正负号 「 +-+− 」 、小数点 「 .. 」 、幂符号 「 ee 」 。
 
@@ -32,6 +33,8 @@ var (
 
 https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/solution/mian-shi-ti-20-biao-shi-shu-zhi-de-zi-fu-chuan-y-2/
 */
+=======
+>>>>>>> 68e403061607ea983b16ab499fc6029a6109e7eb
 func isNumber(s string) bool {
 	s = strings.TrimRight(s, " ")
 	dfa := [][]int{
