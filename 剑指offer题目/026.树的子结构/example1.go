@@ -26,5 +26,5 @@ func isContain(A *TreeNode, B *TreeNode) bool {
 		return false
 	}
 	// 说明当前节点相等，继续前序对比左右子树
-	return isContain(A.Left, B.Left) && isContain(A.Left, B.Left)
+	return isContain(A.Left, B.Left) && isContain(A.Right, B.Right)
 }
