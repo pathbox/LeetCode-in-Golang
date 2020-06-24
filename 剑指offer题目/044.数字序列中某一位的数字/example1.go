@@ -5,7 +5,7 @@ import "strconv"
 // https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/solution/zhe-shi-yi-dao-shu-xue-ti-ge-zhao-gui-lu-by-z1m/
 
 func findNthDigit(n int) int {
-	l, c, i := 1, 9, 1
+	l, c, i := 1, 9, 1 // l 是几位
 	for n > l*c {
 		n -= l * c
 		l++
