@@ -7,12 +7,13 @@ func lengthOfLongestSubstring(s string) int {
 	}
 
 	dp := make([]int, len(s))
+
 	dp[0] = 1
 
 	memo := make(map[byte]int)
 	max := 1
 	memo[s[0]] = 0
-	for i, _ := range s {
+	for i := 1; i < len(s); i++ {
 		if s[i] == s[i-1] {
 			dp[i] = 1
 		} else {
@@ -24,12 +25,16 @@ func lengthOfLongestSubstring(s string) int {
 				dp[i] = dp[i-1] + 1
 			} else {
 				dp[i] = i - lastAppear
+
 			}
 		}
+
 		memo[s[i]] = i
+
 		if max < dp[i] {
 			max = dp[i]
 		}
 	}
 	return max
+
 }
