@@ -16,11 +16,7 @@ func (p Slice) Less(i, j int) bool {
 	s1 := istr + jstr
 	s2 := jstr + istr
 
-	if s1 < s2 { // 转成字符串后进行比较
-		return true
-	}
-
-	return false
+	return s1 < s2 // 转成字符串后进行比较
 }
 
 func (p Slice) Swap(i, j int) { p[i], p[j] = p[j], p[i] }
