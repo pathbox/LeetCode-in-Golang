@@ -1,7 +1,6 @@
 package Offer057
 
 func findContinuousSequence(target int) [][]int {
-
 	left := 1
 	right := 2
 	var res [][]int
