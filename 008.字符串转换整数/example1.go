@@ -14,11 +14,11 @@ func myAtoi(str string) int {
 	for i, v := range str {
 		if v >= '0' && v <= '9' { // 只处理数字，字母不处理
 			result = result*10 + int(v-'0')
-		} else if v == '-' && i == 0 {
+		} else if v == '-' && i == 0 { //首字符正负的判断
 			sign = -1
 		} else if v == '+' && i == 0 {
 			sign = 1
-		} else {
+		} else { // 非数字字符，退出
 			break
 		}
 		if result > math.MaxInt32 {
