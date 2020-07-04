@@ -4,7 +4,7 @@ func search(nums []int, target int) int {
 	lo, lh := 0, len(nums)-1
 
 	for lo <= lh {
-		mid := lo + (lo+lh)/2
+		mid := lo + (lh-lo)/2
 		if nums[mid] == target {
 			return mid
 		}
