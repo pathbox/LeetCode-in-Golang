@@ -15,7 +15,7 @@ func dfs(root *TreeNode) (sum int) {
 	if root == nil {
 		return
 	}
-	lMax := max(0, dfs(root.Left))
+	lMax := max(0, dfs(root.Left)) // 如果比0还小 选择0，不往这分支zou
 	rMax := max(0, dfs(root.Right))
 	res = max(res, root.Val+lMax+rMax)
 	return root.Val + max(lMax, rMax)
