@@ -27,6 +27,7 @@ func detectCycle(head *ListNode) *ListNode {
 		//  当 快指针和慢指针相遇了
 		if fast == slow {
 			// head 节点开始走,fast指针改成每次走一步,相遇的时候 就是环形的起点
+			// 相遇的地方到初始节点处的距离就是起点到环的入口节点的距离
 			for head != fast {
 				head = head.Next
 				fast = fast.Next
