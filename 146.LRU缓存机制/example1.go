@@ -40,7 +40,7 @@ func (this *LRUCache) Get(key int) int {
 	} else {
 		this.remove(node) // 链表中删了这个节点，再新建一个节点放入头部
 		this.putHead(node)
-		return this.m[key]
+		return this.m[key].value
 	}
 }
 
