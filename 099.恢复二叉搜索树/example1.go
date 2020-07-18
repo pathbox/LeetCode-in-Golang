@@ -1,39 +1,37 @@
 package LeetCode099
 
+import "sort"
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
 }
 
-/*
-BST中序遍历 时间O(N) 空间O(N)
-按中序遍历树。遍历后的数组应该是几乎排序的列表，其中只有两个元素被交换。
-在线性时间内确定几乎排序数组中的两个交换元素 x 和 y。
-再次遍历树，将值 x 的节点改为 y，将值 y 的节点改为 x
-升序数组 ，只要我们找出不满足升序条件的数即可
-*/
-
-var last, first, second *TreeNode
-
-func recoverTree(root *TreeNode) {
-	last, first, second = nil, nil, nil
-	dfs(root)
-	first.Val, second.Val = second.Val, first.Val
-}
-
-func dfs(root *TreeNode) {
+//方法一：最简单的方法是中序遍历一次然后排序再按照原来结构中序把数填回去
+func inorderAppend(root *TreeNode, array *[]int) {
 	if root == nil {
 		return
 	}
-	dfs(root.Left)
-	if last != nil && root.Val <= last.Val {
-		if first != nil {
-			second = root
-			return //剪枝
-		}
-		first, second = last, root
+	inorderAppend(root.Left, array)
+	*array = append(*array, root.Val)
+	inorderAppend(root.Right, array)
+}
+
+func inorderFill(root *TreeNode, array []int, current *int) {
+	if root == nil {
+		return
 	}
-	last = root
-	dfs(root.Right)
+	inorderFill(root.Left, array, current)
+	root.Val = array[*current]
+	*current++
+	inorderFill(root.Right, array, current)
+}
+
+func recoverTree(root *TreeNode) {
+	array := []int{}
+	inorderAppend(root, &array)
+	sort.Ints(array)
+	i := 0
+	inorderFill(root, array, &i) // 将排完序的数组，重新中序遍历构造二叉搜索树
 }
