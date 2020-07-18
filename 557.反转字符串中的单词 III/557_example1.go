@@ -16,7 +16,7 @@ func reverseWords(s string) string {
 			}
 			slow = i + 1
 		}
-
+		// 上面只处理到' '之前的字符串，还有最后一个单词没有处理
 		if i == len(bt)-1 {
 			fast := i
 			for slow < fast {

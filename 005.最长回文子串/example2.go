@@ -10,7 +10,7 @@ func longestPalindrome(s string) string {
 	for l := 0; l < n; l++ {
 		for i := 0; i+l < n; i++ {
 			j := i + l
-			if l == 0 {
+			if l == 0 { // i 和j相等
 				dp[i][j] = 1
 			} else if l == 1 {
 				if s[i] == s[j] {
