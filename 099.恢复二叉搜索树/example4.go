@@ -7,6 +7,7 @@ type TreeNode struct {
 }
 
 /*
+https://leetcode.wang/leetCode-94-Binary-Tree-Inorder-Traversal.html
 根节点初始化为current
 
 如果current的左节点为空，输出该节点，同时current = current.Right
