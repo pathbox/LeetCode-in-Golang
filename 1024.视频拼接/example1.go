@@ -17,7 +17,7 @@ func genJumpRecord(diffJumps [][]int, T int) int {
 	curStart := diffJumps[0][0]
 	maxEnd := preEnd
 	for curIndex < len(diffJumps) && curStart <= preEnd {
-		for curStart <= preEnd && curIndex < len(diffJumps) {
+		for curStart <= preEnd && curIndex < len(diffJumps) { // 在下次起始点不超过本次范围的情况下，寻找一个覆盖范围最广的片段.下一个片段的start要在上一个片段的区间内，才有交集，才能连接上
 			if diffJumps[curIndex][1] > maxEnd {
 				maxEnd = diffJumps[curIndex][1]
 			}
