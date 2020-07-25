@@ -93,3 +93,9 @@ func getMirror(s string) string {
 	}
 	return string(sByte)
 }
+
+/*
+"1121211"
+得到
+"1120211"
+*/
