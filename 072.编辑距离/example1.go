@@ -40,24 +40,40 @@ func minDistance(word1 string, word2 string) int {
 	for i := 1; i <= m; i++ {
 		dp[i][0] = i
 	}
+	// dp[0][i]表示将空串编辑为str2[:i]的代价，即插入字符的代价
+	for i := 1; i <= n; i++ {
+		dp[0][i] = i
+	}
+
 	// 下面是动态规划的主方法 所以从1开始
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
 			if word1[i-1] == word2[j-1] {
 				dp[i][j] = dp[i-1][j-1]
 			} else {
-				dp[i][j] = dp[i-1][j-1] + 1 // 替换代价
+				dp[i][j] = min(dp[i-1][j-1], dp[i][j-1], dp[i-1][j]) + 1
+				// dp[i][j] = dp[i-1][j-1] + 1 // 替换代价
 			}
-			dp[i][j] = min(dp[i][j], dp[i][j-1]+1) // 插入代价
-			dp[i][j] = min(dp[i][j], dp[i-1][j]+1) // 删除代价
+			// dp[i][j] = min(dp[i][j], dp[i][j-1]+1) // 插入代价
+			// dp[i][j] = min(dp[i][j], dp[i-1][j]+1) // 删除代价 i-1已经和j对应上了，所以i和j对应的时候，就是要一次删除操作删掉i
 		}
 	}
 	return dp[m][n]
 }
 
-func min(a, b int) int {
-	if a > b {
-		return b
+func min(args ...int) int {
+	m := args[0]
+	for _, v := range args {
+		if m > v {
+			m = v
+		}
 	}
-	return a
+	return m
 }
+
+// func min(a, b int) int {
+// 	if a > b {
+// 		return b
+// 	}
+// 	return a
+// }
