@@ -1,5 +1,6 @@
 package LeetCode256
 
+// https://leetcode-cn.com/problems/paint-house/solution/fen-shua-fang-zi-by-leetcode/
 func minCost(costs [][]int) int {
 	if len(costs) == 0 {
 		return 0
@@ -13,7 +14,7 @@ func minCost(costs [][]int) int {
 
 	for i := 1; i < len(costs); i++ {
 		curr[0] = costs[i][0] + min(prev[1], prev[2]) // 当前选择红色的cost=红色cost+上一个为止的最小cost和
-		curr[1] = costs[i][1] + min(prev[0], prev[1])
+		curr[1] = costs[i][1] + min(prev[0], prev[2])
 		curr[2] = costs[i][2] + min(prev[0], prev[1])
 		//...同样的可以扩充到多种颜色,然后将min方法改成支持数组中找到最小值的方式，初始化的时候将所有颜色初始化好
 		prev = curr
@@ -27,3 +28,5 @@ func min(a, b int) int {
 	}
 	return b
 }
+
+// 空间O(1) 时间O(N)
