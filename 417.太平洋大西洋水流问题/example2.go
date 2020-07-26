@@ -49,7 +49,7 @@ func pacificAtlantic(matrix [][]int) [][]int {
 		} else if ocean == Atlantic && (y == col-1 || x == row-1) {
 			// 大西洋的边界
 			m[x][y] = setBit(m[x][y], ocean)
-		} else if matriy[x][y] >= value {
+		} else if matrix[x][y] >= value {
 			// 当前顶点能到达下一个顶点
 			m[x][y] = setBit(m[x][y], ocean)
 		} else {
@@ -58,13 +58,13 @@ func pacificAtlantic(matrix [][]int) [][]int {
 		}
 
 		// 上
-		dfs(x-1, y, matriy[x][y], ocean)
+		dfs(x-1, y, matrix[x][y], ocean)
 		// 左
-		dfs(x, y-1, matriy[x][y], ocean)
+		dfs(x, y-1, matrix[x][y], ocean)
 		// 下
-		dfs(x+1, y, matriy[x][y], ocean)
+		dfs(x+1, y, matrix[x][y], ocean)
 		// 右
-		dfs(x, y+1, matriy[x][y], ocean)
+		dfs(x, y+1, matrix[x][y], ocean)
 	}
 	// 查找太平洋
 	dfs(0, 0, -1, Pacific)
