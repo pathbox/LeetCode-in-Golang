@@ -8,14 +8,15 @@ type ListNode struct {
 // 快慢指针
 func reverseList(head *ListNode) *ListNode {
 	if head == nil {
-		return head
+		return nil
 	}
-	pre, cur := head, &ListNode{}
-	for pre != nil {
-		tmpNext := pre.Next
-		pre.Next = cur
-		cur = pre
-		pre = tmpNext
+	var pre *ListNode
+	cur := head
+	for cur != nil {
+		next := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = next
 	}
-	return cur
+	return pre
 }
