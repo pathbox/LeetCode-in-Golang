@@ -16,7 +16,7 @@ func Constructor() RandomizedSet {
 /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
 func (this *RandomizedSet) Insert(val int) bool {
 	if _, ok := this.set[val]; !ok {
-		this.data = append(this.data, val)
+		this.data = append(this.data, val) // 从尾部加入
 		this.set[val] = this.length
 		this.length++
 		return true
