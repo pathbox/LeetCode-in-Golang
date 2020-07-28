@@ -17,7 +17,7 @@ func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 	var search func(supId int)
 	search = func(supId int) {
 		subs, ok := managerMap[supId]
-		if !ok {
+		if !ok { // 没有下属
 			if cost > max {
 				max = cost
 			}
