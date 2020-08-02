@@ -5,7 +5,7 @@ import "sort"
 func threeSum(nums []int) [][]int {
 	n := len(nums)
 	sort.Ints(nums) // 首先排个序
-	ans := make([]int, 0)
+	ans := make([][]int, 0)
 
 	for first := 0; first < n; first++ {
 		// 需要和上一次枚举的数不同
@@ -22,7 +22,7 @@ func threeSum(nums []int) [][]int {
 			if second > first+1 && nums[second] == nums[second-1] {
 				continue
 			}
-			// 需要保证b的指针在c的指针左侧
+			// 需要保证b的指针在c的指针左侧,说明nums[second]+nums[third] 和太大了
 			for second < third && nums[second]+nums[third] > target {
 				third--
 			}
