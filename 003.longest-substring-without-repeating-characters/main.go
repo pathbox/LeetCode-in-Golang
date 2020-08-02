@@ -21,7 +21,7 @@ func lengthOfLongestSubstring(s string) int {
 
 	for i := 0; i < len(s); i++ {
 		if location[s[i]] >= left {
-			left = location[s[i]] + 1 // 在s[left:i+1]中去除s[i]字符及其之前的部分
+			left = location[s[i]] + 1 // 在s[left:i+1]中去除当前重复的s[i]字符及其之前的部分
 		} else if i+1-left > maxLen {
 			maxLen = i + 1 - left
 		}

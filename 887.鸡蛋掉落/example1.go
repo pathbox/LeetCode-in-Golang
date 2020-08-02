@@ -35,6 +35,6 @@ func comb(m, n int) int {
 }
 
 func main() {
-	r := superEggDrop(3, 14)
+	r := superEggDrop(2, 100) // 14
 	fmt.Println("count:", r)
 }
