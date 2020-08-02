@@ -12,7 +12,7 @@ func merge(intervals [][]int) [][]int {
 		if len(ret) == 0 || cs[1] < s[0] { // 不能合并
 			ret = append(ret, s)
 			cs = s
-		} else if cs[1] < s[1] { // 能合并，just 扩展y坐标即可
+		} else if cs[1] >= s[0] && cs[1] < s[1] { // 能合并，just 扩展y坐标即可, cs[1] >= s[0]可以不写，因为上一个条件判断了cs[1] < s[0]操作
 			cs[1] = s[1]
 		}
 	}
