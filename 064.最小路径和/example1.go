@@ -17,7 +17,7 @@ func minPathSum(grid [][]int) int {
 			} else if j == 0 && i != 0 {
 				dp[i][j] = dp[i-1][j] + grid[i][j]
 			} else if i != 0 && j != 0 {
-				dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j]
+				dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j] // 正常情况
 			}
 		}
 	}
