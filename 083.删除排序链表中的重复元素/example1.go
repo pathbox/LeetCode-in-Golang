@@ -16,8 +16,8 @@ func deleteDuplicates(head *ListNode) *ListNode {
 		if cur.Val == next.Val {
 			next = next.Next
 		} else {
-			cur.Next = next
-			cur = next
+			cur.Next = next // 将所有与cur节点重复的节点跳过
+			cur = next      // 继续移动两指针
 			next = next.Next
 		}
 	}
