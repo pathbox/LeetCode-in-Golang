@@ -14,7 +14,7 @@ func partition(head *ListNode, x int) *ListNode {
 	curGreat := greatDummy
 	curLess := lessDummy
 	for head != nil {
-		if head.Val > x {
+		if head.Val >= x {
 			curGreat.Next = head
 			curGreat = head
 		} else {
