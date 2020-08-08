@@ -19,8 +19,11 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 	// 需要三个指针进行反转
 	for i := m; i < n; i++ {
 		nextnext = next.Next
-		cur.Next, pre, next.Next = pre, cur, cur
-		cur, next = next, nextnext
+		cur.Next = pre // cur next指针指向pre
+		pre = cur      // pre 移到cur上
+		next.Next = cur
+		cur = next      // cur 移到next上
+		next = nextnext // next 移到nextnext
 	}
 	prem.Next.Next, prem.Next = next, cur
 	return dummy.Next
