@@ -25,7 +25,7 @@ func reorderList(head *ListNode) {
 	left := head
 	right := slow.Next // 中间节点
 	slow.Next = nil
-	right = Reverse(right) // 反转右部分链表
+	right = Reverse(right) // 反转右部分链
 
 	for right != nil {
 		lNext := left.Next
@@ -41,7 +41,7 @@ func Reverse(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
-	pre := &ListNode{}
+	var pre *ListNode
 	cur := head
 	for cur != nil {
 		next := cur.Next
