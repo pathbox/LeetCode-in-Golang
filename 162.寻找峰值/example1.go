@@ -1,5 +1,6 @@
 package LeetCode162
 
+// https://leetcode-cn.com/problems/find-peak-element/solution/hua-jie-suan-fa-162-xun-zhao-feng-zhi-by-guanpengc/
 func findPeakElement(nums []int) int {
 	var (
 		left, mid int
