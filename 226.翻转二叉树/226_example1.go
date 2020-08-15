@@ -6,6 +6,11 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+/*
+1. 递归得到right节点
+2. 递归得到left节点
+3. 到root层，root的left赋值为上述递归得到的right，right为上述递归得到的left，返回当前root节点
+*/
 func invertTree(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
