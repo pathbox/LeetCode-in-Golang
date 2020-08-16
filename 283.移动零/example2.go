@@ -1,5 +1,6 @@
 package LeetCode283
 
+// https://leetcode-cn.com/problems/move-zeroes/solution/dong-hua-yan-shi-283yi-dong-ling-by-wang_ni_ma/
 func moveZeroes(nums []int) {
 	if nums == nil {
 		return
