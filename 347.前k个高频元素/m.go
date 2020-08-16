@@ -1,16 +1,10 @@
-package LeetCode347
+package main
 
 import (
 	"container/heap"
+	"fmt"
 )
 
-/*
-借助哈希表来建立数字和其出现次数的映射，遍历一遍数组统计元素的频率
-维护一个元素数目为k的最小堆
-每次都将新的元素与堆顶元素(堆中频率 最小的元素)进行比较
-如果新的元素的频率比堆顶端的元素大，则弹出堆顶端的元素，将新的元素添加进堆中
-最终，堆中的k个元素即为前k个高频元素
-*/
 func topKFrequent(nums []int, k int) []int {
 	// 使用字典，统计每个元素出现的次数，元素为键，元素出现的次数为值
 	hashMap := make(map[int]int, len(nums))
@@ -38,8 +32,12 @@ func topKFrequent(nums []int, k int) []int {
 	}
 	return res
 }
+func main() {
+	nums := []int{3, 0, 1, 0}
+	k := 1
+	fmt.Println(topKFrequent(nums, k))
+}
 
-// heap接口方法
 type IntHeap []int
 
 func (h IntHeap) Len() int            { return len(h) }
