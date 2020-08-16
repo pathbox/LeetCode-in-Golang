@@ -15,5 +15,5 @@ func increasingTriplet(nums []int) bool {
 			return true
 		}
 	}
-	return true
+	return false
 }
