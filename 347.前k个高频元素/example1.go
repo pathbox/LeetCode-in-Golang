@@ -37,6 +37,7 @@ func topKFrequent(nums []int, k int) []int {
 	return res
 }
 
+// 定义接口方法5个
 type IntHeap []int
 
 func (h IntHeap) Len() int            { return len(h) }
@@ -50,3 +51,5 @@ func (h *IntHeap) Pop() interface{} {
 	*h = old[:n-1]
 	return x
 }
+
+// O(nlogk)
