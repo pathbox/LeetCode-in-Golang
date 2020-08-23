@@ -15,7 +15,7 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 
 	var index int
 	for i := range inorder {
-		if inorder[i] == preorder[0] {
+		if inorder[i] == preorder[0] { // 每一层的preorder[0]，inorder[index]是根节点，以此继续递归左子树的preorder和inorder参数传入和右子树的
 			index = i // 找到根节点的索引
 			break
 		}

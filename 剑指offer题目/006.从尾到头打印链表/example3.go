@@ -5,7 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// 反转链表
+// 将链表数据放入数组，再倒序输出
 func reversePrint(head *ListNode) []int {
 	if head == nil {
 		return nil

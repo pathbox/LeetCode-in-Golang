@@ -16,7 +16,7 @@ func reversePrint(head *ListNode) []int {
 	for head != nil { // 不断遍历head指针
 		node := head.Next   // 保存next节点
 		head.Next = newHead // 倒序连接
-		newHead = head      // 将newHead移到头部
+		newHead = head      // 将newHead移到头部 并不是说链表断开了，指针之间就不能赋值，指针是否能赋值和移动，和链表的连接性无关
 		head = node
 	}
 
