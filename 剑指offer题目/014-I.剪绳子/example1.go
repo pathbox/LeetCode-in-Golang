@@ -36,7 +36,7 @@ func cuttingRope(n int) int {
 		result *= 2
 	case 1:
 		result = math.Pow(3, float64(parts-1))
-		result *= 4
+		result *= 2 * 2
 	default:
 		result = math.Pow(3, float64(parts))
 	}

@@ -10,7 +10,7 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	first := dummyHead                         // 双指针1
 	second := dummyHead.Next                   // 双指针2
 	for second != nil {
-		if second.Val == val {
+		if second.Val == val { // 删除的是second节点
 			first.Next = second.Next
 			break
 		}

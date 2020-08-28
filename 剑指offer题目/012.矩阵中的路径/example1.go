@@ -13,7 +13,7 @@ func exist(board [][]byte, word string) bool {
 }
 
 func dfs(board [][]byte, i, j int, word string, k int) bool {
-	if board[i][j] != word[k] {
+	if board[i][j] != word[k] { // 每次递归进来都会先进行比较，比较成功才往下走继续递归,否则直接返回
 		return false
 	}
 	if k == len(word)-1 { // 匹配到了所有word字符 返回true
@@ -33,6 +33,6 @@ func dfs(board [][]byte, i, j int, word string, k int) bool {
 	if j+1 < len(board[0]) && dfs(board, i, j+1, word, k+1) { // 向右
 		return true
 	}
-	board[i][j] = temp // 回溯
-	return false
+	board[i][j] = temp // 上面的递归都没有得到结果，则回溯
+	return false       // 比较都没成功返回false
 }

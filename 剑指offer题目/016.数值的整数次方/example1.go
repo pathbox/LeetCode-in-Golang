@@ -4,9 +4,9 @@ package Offer016
 func help(x float64, n int) float64 {
 	if n == 1 {
 		return x
-	} else if n&1 == 0 {
+	} else if n&1 == 0 { // 表示n是偶数可以开平方
 		return help(x*x, n/2)
-	} else {
+	} else { //  n&1 == 1
 		return x * help(x, n-1)
 	}
 }

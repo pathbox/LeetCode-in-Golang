@@ -7,6 +7,11 @@ type TreeNode struct {
 }
 
 // https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/solution/er-cha-shu-de-qian-xu-bian-li-fen-zhi-si-xiang-by-/
+/*
+通过preorder[0]得到某个root节点
+定位inorder root节点的位置
+现在知道了root节点在preorder和inorder的位置，再继续递归左子树和右子树，下一层的递归通过preorder和inorder排除已经找到的root节点
+*/
 func buildTree(preorder []int, inorder []int) *TreeNode {
 	if len(preorder) == 0 {
 		return nil

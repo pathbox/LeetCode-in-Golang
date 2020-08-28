@@ -9,6 +9,7 @@ func Constructor() CQueue {
 	return CQueue{}
 }
 
+// 每次加入新元素的时候，现将原有的所有元素移到stack2，然后再将新元素加入到stack1，再将stack2的所有元素迁移回来，这样在栈top的元素就是队列头元素。 这种方案，再读取操作的时候是O(1)，写入操作的时候是O(n)
 func (this *CQueue) AppendTail(value int) {
 	for len(this.stack1) > 0 { // 不断的把stack1的数据从尾到头存储到stack2
 		n := len(this.stack1)

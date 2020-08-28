@@ -6,7 +6,7 @@ func exchange(nums []int) []int {
 	for j < len(nums) {
 		if nums[j]%2 != 0 {
 			nums[i], nums[j] = nums[j], nums[i]
-			i++
+			i++ // 发生交换了 i++
 		}
 		j++
 	}
