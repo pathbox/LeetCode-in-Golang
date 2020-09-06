@@ -1,24 +1,25 @@
 package Offer038
 
 func permutation(s string) []string {
-	var ret []string
-	var m = make(map[string]struct{})
-	bfs(s, ``, m)
-
-	for key := range m {
-		ret = append(ret, key)
+	res := make(map[string]bool)
+	c := []byte(s)
+	dfs(res, c, 0)
+	RES := []string{}
+	for key := range res {
+		RES = append(RES, key)
 	}
-
-	return ret
+	return RES
 }
 
-func bfs(remained string, now string, m map[string]struct{}) {
-	if len(remained) == 0 {
-		m[now] = struct{}{}
+func dfs(res map[string]bool, c []byte, i int) {
+	if i == len(c)-1 { // 满足一种条件了
+		res[string(c)] = true
 		return
-	}
-	for i := 0; i < len(remained); i++ {
-		s := remained[0:i] + remained[i+1:]
-		bfs(s, now+string(remained[i]), m)
+	} else {
+		for j := i; j < len(c); j++ { // j := i
+			c[i], c[j] = c[j], c[i] // 交换
+			dfs(res, c, i+1)
+			c[i], c[j] = c[j], c[i] // 回溯 c恢复为当次传入时候的值
+		}
 	}
 }
