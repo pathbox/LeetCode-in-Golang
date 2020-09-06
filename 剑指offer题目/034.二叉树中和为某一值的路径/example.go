@@ -33,5 +33,5 @@ func dfs(root *TreeNode, sum int, arr []int, ret *[][]int) {
 	dfs(root.Left, sum-root.Val, arr, ret)
 	dfs(root.Right, sum-root.Val, arr, ret)
 
-	arr = arr[:len(arr)-1]
+	arr = arr[:len(arr)-1] // 回溯
 }

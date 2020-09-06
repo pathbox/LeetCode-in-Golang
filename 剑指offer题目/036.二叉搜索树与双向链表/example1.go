@@ -21,10 +21,10 @@ func treeToDoublyList(root * TreeNode) * TreeNode {
     // 处理头尾节点
     head, tail: = root, root
     for head.Left != nil {
-        head = head.Left
+        head = head.Left // 最左节点是头节点
     }
     for head.Right != nil {
-        tail = tail.Right
+        tail = tail.Right // 最右节点是尾节点
     }
     head.Left = tail
     tail.Right = head.Right

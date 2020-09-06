@@ -16,9 +16,10 @@ func dfs(head *Node) *Node {
 	if head == nil {
 		return nil
 	}
-	if newNode, ok := visit[head]; ok {
+	if newNode, ok := visit[head]; ok { // 节点已经存在，直接返回 浅拷贝
 		return newNode
 	}
+	// 节点不存在，新建节点
 	copyNode := &Node{
 		Val: head.Val,
 	}
