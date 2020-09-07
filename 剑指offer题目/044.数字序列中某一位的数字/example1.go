@@ -3,16 +3,19 @@ package Offer044
 import "strconv"
 
 // https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/solution/zhe-shi-yi-dao-shu-xue-ti-ge-zhao-gui-lu-by-z1m/
+// https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/solution/golang-shuang-bai-by-eggsy-3-7/
 
 func findNthDigit(n int) int {
-	l, c, i := 1, 9, 1 // l 是几位
-	for n > l*c {
-		n -= l * c
-		l++
-		c *= 10
-		i *= 10
+	var digst = 1
+	var count = 9
+	var start = 1
+	for n-count > 0 {
+		n -= count
+		digst += 1
+		start *= 10
+		count = digst * start * 9
 	}
-	i += (n - 1) / l
-	s := []byte(strconv.Itoa(i))
-	return int(s[(n-1)%l] - '0')
+	var num = start + (n-1)/digst
+	var res = strconv.Itoa(num)[(n-1)%digst] - '0'
+	return int(res)
 }
