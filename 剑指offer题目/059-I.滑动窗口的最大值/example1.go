@@ -1,5 +1,11 @@
 package Offer059
 
+/* 能减少重复遍历元素
+记录最大值；
+如果滑动丢失的是最大值，则遍历滑动窗口更新存储的最大值；
+如果滑动新增的值是最大值，则用它替换存储的最大值
+*/
+
 func maxSlidingWindow(nums []int, k int) []int {
 	var result []int
 	var max int
