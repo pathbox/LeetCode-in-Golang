@@ -9,22 +9,31 @@ package LeetCode003
 */
 
 func lengthOfLongestSubstring(s string) int {
-	// location[s[i]] == j 表示：
-	// s中第i个字符串，上次出现在s的j位置，所以，在s[j+1:i]中没有s[i]
-	// location[s[i]] == -1 表示： s[i] 在s中第一次出现
-	location := [256]int{} // 只有256长是因为，假定输入的字符串只有ASCII字符
-	for i := range location {
-		location[i] = -1 // 先设置所有的字符都没有见过
-	}
-
-	maxLen, left := 0, 0
-
-	for i := 0; i < len(s); i++ {
-		if location[s[i]] >= left {
-			left = location[s[i]] + 1 // 在s[left:i+1]中去除当前重复的s[i]字符及其之前的部分
-		} else if i+1-left > maxLen {
-			maxLen = i + 1 - left
+	// 哈希集合，记录每个字符是否出现过
+	m := map[byte]int{}
+	n := len(s)
+	// 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动
+	rk, ans := -1, 0
+	for i := 0; i < n; i++ {
+		// 新的一个外循环表示左指针移动
+		if i != 0 {
+			// 左指针向右移动一格，移除一个字符
+			delete(m, s[i-1])
 		}
+		// 内循环表示右指针不断移动
+		for rk+1 < n && m[s[rk+1]] == 0 {
+			// 不断地移动右指针
+			m[s[rk+1]]++
+			rk++
+		}
+		ans = max(ans, rk-i+1)
 	}
-	return maxLen
+	return ans
+}
+
+func max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
 }
