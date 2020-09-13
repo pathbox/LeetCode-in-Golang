@@ -1,5 +1,6 @@
 package LeetCode017
 
+// 0-9数字位对应的字符串
 var table []string = []string{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
 
 func letterCombinations(digits string) []string {

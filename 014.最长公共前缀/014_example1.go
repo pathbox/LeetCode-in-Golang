@@ -22,7 +22,7 @@ func longestCommonPrefix(strs []string) string {
 
 	i := 0
 I:
-	for ; i < maxPreLength; i++ { // 在maxPreLength 下 比较每个元素之间的最长公共前缀
+	for ; i < maxPreLength; i++ { // 在maxPreLength 下 比较每个元素之间的最长公共前缀 i是字符索引 j是元素索引
 		for j := 1; j < strNumber; j++ { // 从i为0的开始，顺着下去两两比较i索引字符是否相等
 			if strs[j][i] != strs[j-1][i] { // 如果不相等则退出比较，此时i就是最长的公共前缀的索引
 				break I

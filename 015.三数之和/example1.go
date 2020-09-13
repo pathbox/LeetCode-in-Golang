@@ -35,6 +35,7 @@ func threeSum(nums []int) [][]int {
 				ans = append(ans, []int{nums[first], nums[second], nums[third]})
 			}
 		}
+		// nums[second]+nums[third]+nums[first] < 0 的情况可以不用写，因为外层循环first++就是这个操作
 	}
 	return ans
 }

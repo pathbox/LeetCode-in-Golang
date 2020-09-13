@@ -18,6 +18,8 @@ func threeSumClosest(nums []int, target int) int {
 			best = cur
 		}
 	}
+
+	// 三个指针： i j(i+1) k(n-1)
 	for i := 0; i < n; i++ {
 		// 保证和上一次枚举的元素不相等
 		if i > 0 && nums[i] == nums[i-1] {
@@ -26,7 +28,7 @@ func threeSumClosest(nums []int, target int) int {
 		j, k := i+1, n-1
 		for j < k {
 			sum := nums[i] + nums[j] + nums[k]
-			if sum == target {
+			if sum == target { // 完美匹配
 				return target
 			}
 			update(sum)
