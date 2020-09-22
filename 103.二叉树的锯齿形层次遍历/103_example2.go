@@ -29,11 +29,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 				nextLevel = append(nextLevel, n.Right)
 			}
 		}
-		if left {
-			left = false
-		} else {
-			left = true
-		}
+		left = !left
 		result = append(result, item)
 		curLevel = nextLevel
 	}

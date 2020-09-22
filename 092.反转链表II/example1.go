@@ -16,7 +16,7 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 	}
 	cur, next := prem.Next, prem.Next.Next // cur就是第m个节点
 	var pre, nextnext *ListNode
-	// 需要三个指针进行反转
+	// 需要三个指针进行反转 将 m->n这一端进行反转
 	for i := m; i < n; i++ {
 		nextnext = next.Next
 		cur.Next = pre // cur next指针指向pre
@@ -25,6 +25,6 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 		cur = next      // cur 移到next上
 		next = nextnext // next 移到nextnext
 	}
-	prem.Next.Next, prem.Next = next, cur
+	prem.Next.Next, prem.Next = next, cur // 然后再处理最后的两端部分
 	return dummy.Next
 }

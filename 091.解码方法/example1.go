@@ -2,6 +2,7 @@ package LeetCode091
 
 import "strconv"
 
+// https://leetcode-cn.com/problems/decode-ways/solution/dong-tai-gui-hua-tu-jie-by-nfgc/
 func numDecodings(s string) int {
 	n := len(s)
 	if n == 0 {
