@@ -17,7 +17,7 @@ func singleNumber(nums []int) int {
 		for k := 0; k < len(nums); k++ {
 			cnt += (uint(nums[k]) >> i) & 1 // 统计每个元素这一位出现1的次数
 		}
-		if cnt%3 != 0 { // 这一位的1出现非3次
+		if cnt%3 != 0 { // 这一位的1出现非0、3次，只能为1次
 			res = res | (1 << i) // 把这一位记到结果的相应位，位数只有0/1
 		}
 	}
