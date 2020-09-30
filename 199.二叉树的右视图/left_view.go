@@ -16,7 +16,7 @@ func leftSideView(root *TreeNode) []int {
 	for len(queue) > 0 {
 		length := len(queue)
 		for length > 0 {
-			length--
+			length--               // 每一层的第一个值
 			if len(res) == level { // 当数组长度等于当前 深度 时, 把当前的值加入数组, 先入左节点，每一层的第一个元素判断
 				res = append(res, queue[0].Val)
 			}
