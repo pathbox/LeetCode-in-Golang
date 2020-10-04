@@ -9,7 +9,7 @@ func longestPalindrome(s string) int {
 	}
 
 	for _, v := range hash {
-		sum += (v / 2) * 2 // 对2整除，得到多少个可以构成回文串的组合字符. 回文字符偶数个性质
+		sum += (v / 2) * 2 // 对2整除，得到多少个可以构成回文串的组合字符. 回文字符偶数个性质。 找一对一对匹配
 	}
 
 	if sum == len(s) {
