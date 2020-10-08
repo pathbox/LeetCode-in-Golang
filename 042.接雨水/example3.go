@@ -6,8 +6,8 @@ func trap(height []int) int {
 	}
 	size := len(height)
 	res := 0
-	leftDP := make([]int, size)
-	rightDP := make([]int, size)
+	leftDP := make([]int, size)  // 0-i最大的值
+	rightDP := make([]int, size) // i-size最大的值
 	leftDP[0] = height[0]
 	rightDP[size-1] = height[size-1]
 	for i := 1; i < size; i++ {
