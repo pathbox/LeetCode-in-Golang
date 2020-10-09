@@ -2,13 +2,14 @@ package LeetCode130
 
 // 搜索与边界相通的O，它们不会被X替换
 func dfs(board [][]byte, i, j int) {
-	// 边界判断
+	// 边界判断:不是边界或者已经搜索过
 	// board[i][j] == '#': 说明已经搜索过
 	if i < 0 || j < 0 || i >= len(board) || j >= len(board[0]) || board[i][j] == 'X' || board[i][j] == '#' {
 		return
 	}
 	// 和边界联通的O，先替换成#， 后续换回O
 	board[i][j] = '#'
+	// 上下左右继续广度优先搜索
 	dfs(board, i+1, j)
 	dfs(board, i-1, j)
 	dfs(board, i, j+1)
