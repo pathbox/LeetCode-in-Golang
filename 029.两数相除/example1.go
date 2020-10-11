@@ -4,6 +4,7 @@ package LeetCode029
 判断商的正负性；
 计算被除数可以减去多少个除数；
 若商大于2^31 -1，则返回2^31-1
+https://leetcode-cn.com/problems/divide-two-integers/solution/xiao-xue-sheng-du-hui-de-lie-shu-shi-suan-chu-fa-b/
 */
 
 func divide(dividend int, divisor int) int {
