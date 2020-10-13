@@ -23,9 +23,9 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	for i := 1; i < len(intervals); i++ {
 		if intervals[i][0] >= end {
 			end = intervals[i][1]
-		} else {
+		} else { // intervals[i][0] < end
 			if intervals[i][1] < end { // 如果interval[i][0] < end && intervals[i][1] < end
-				end = intervals[i][1]
+				end = intervals[i][1] // 有重复区域，end取更小的那一个y端点值
 			}
 			count++
 		}
