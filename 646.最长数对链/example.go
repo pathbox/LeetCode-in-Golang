@@ -27,7 +27,7 @@ func findLongestChain(pairs [][]int) int {
 	p := &pair{
 		data: pairs,
 	}
-	sort.Sort(p)
+	sort.Sort(p) // 还是需要排序
 	n := len(pairs)
 	if n < 2 {
 		return n
