@@ -1,5 +1,6 @@
 package LeetCode300
 
+// https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/solution/yi-bu-yi-bu-tui-dao-chu-zui-you-jie-fa-2-zui-chang/
 func lengthOfLIS(nums []int) int {
 	if len(nums) < 1 {
 		return 0

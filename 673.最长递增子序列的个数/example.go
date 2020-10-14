@@ -1,5 +1,6 @@
 package LeetCode674
 
+// https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/solution/yi-bu-yi-bu-tui-dao-chu-zui-you-jie-fa-2-zui-chang/
 //使用DP实现
 //记录当前节点的最大递增序列的个数 ，即判定df[i] == df[j] + 1的时候， ds[i] + 1 最后取maxlength 对应的路径个数
 func findNumberOfLIS(nums []int) int {
