@@ -50,3 +50,30 @@ func dfs(i, j int, board [][]byte, node *TrieNode, result *[]string) {
 	dfs(i, j-1, board, node, result)
 	board[i][j] = c // 回溯
 }
+
+/*
+func dfs(i, j int, board [][]byte, node *TrieNode, result *[]string) {
+	// 1. 超出边界的条件的过滤
+	if i < 0 || j < 0 || i == len(board) || j == len(board[0]) {
+		return
+	}
+	c := board[i][j]                             // 当前字符
+	if c == '#' || node.children[c-'a'] == nil { // 访问过了或者字典中没有
+		return
+	}
+
+	// 2. 具体操作逻辑，包括满足条件的操作
+
+	board[i][j] = '#'                // 在当前递归层访问过了
+
+	// 3. 四个方向的继续dfs
+	dfs(i+1, j, board, node, result)
+	dfs(i-1, j, board, node, result)
+	dfs(i, j+1, board, node, result)
+	dfs(i, j-1, board, node, result)
+
+	// 4. 回溯
+	board[i][j] = c // 回溯
+}
+
+*/
