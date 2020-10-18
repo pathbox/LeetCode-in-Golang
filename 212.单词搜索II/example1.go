@@ -73,7 +73,7 @@ func dfs(i, j int, board [][]byte, node *TrieNode, result *[]string) {
 	dfs(i, j-1, board, node, result)
 
 	// 4. 回溯
-	board[i][j] = c // 回溯
+	board[i][j] = c // 以board[i][j]的dfs结束，回溯将board[i][j]的值还原，因为在其他的dfs中可能会遍历到board[i][j]
 }
 
 */
