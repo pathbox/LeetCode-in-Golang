@@ -4,6 +4,7 @@ package LeetCode0812
 
 var solutions [][]string
 
+// n皇后问题
 func solveNQueens(n int) [][]string {
 	solutions = make([][]string, 0)
 	queens := make([]int, n) // 存的是每一行queen的列的索引位置
