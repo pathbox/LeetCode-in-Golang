@@ -1,8 +1,13 @@
-package LeetCode650
+package LeetCode651
 
-func minSteps(n int) int {
+func maxA(n int) int {
 	return dp(n, 0, 0) // 初始状态
 }
+
+/*
+在屏幕上的数量、在剪切板的数量是状态
+A 、 C-A 、 C-C 、 C-V （ Ctrl 简写为C）是选择
+*/
 
 // n表示还剩的按键次数  num表示在屏幕上的字母数量，copy表示在剪切板上的字母数量
 func dp(n, num, copy int) int {
