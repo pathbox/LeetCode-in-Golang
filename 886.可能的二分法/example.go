@@ -2,9 +2,9 @@ package LeetCode886
 
 // https://leetcode-cn.com/problems/possible-bipartition/solution/golangbfshe-dfsran-se-by-bloodborne/
 
-func possibleBipartition1(N int, dislikes [][]int) bool {
+func possibleBipartition(N int, dislikes [][]int) bool {
 	// 维护每个人讨厌的人物
-	graph := make([][]int, N+1)
+	graph := make([][]int, N+1) // 邻接矩阵
 	for _, v := range dislikes {
 		graph[v[0]] = append(graph[v[0]], v[1])
 		graph[v[1]] = append(graph[v[1]], v[0])
@@ -23,16 +23,16 @@ func possibleBipartition1(N int, dislikes [][]int) bool {
 			queue = queue[1:]
 			for _, v := range graph[head] {
 				// 两边都不容，无处容身！
-				if color[v] == color[head] {
+				if color[v] == color[head] { // 1.head 和其所讨厌的人的颜色不能一样，不能在一组
 					return false
 				}
-				if color[v] != 0 {
+				if color[v] != 0 { // 2.表示已经染色
 					continue
 				}
-				queue = append(queue, v)
 				if color[v] == 0 {
-					color[v] = -color[head]
+					color[v] = -color[head] // 3.v的颜色和head的颜色要是相反的
 				}
+				queue = append(queue, v) // 入队列，需要等会遍历v的讨厌的人的情况
 			}
 		}
 	}
