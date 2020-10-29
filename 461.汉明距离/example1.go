@@ -28,3 +28,19 @@ func hammingDistance(x int, y int) int {
 	return count
 
 }
+
+func hammingDistance(x int, y int) int {
+	C := x ^ y
+	count := 0
+
+	for C != 0 {
+		C = C & (C - 1)
+		count++
+	}
+
+	return count
+}
+
+/*
+n&(n-1)这个操作是算法中常⻅的，作⽤是消除数字 n 的⼆进制表⽰中的最后⼀个 1。
+*/
