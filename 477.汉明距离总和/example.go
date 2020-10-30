@@ -11,6 +11,7 @@ func totalHammingDistance(nums []int) int {
 				c++
 			}
 		}
+		// 对于每一位，距离 = (nums of 1) * (nums of 0)
 		count += c * (len(nums) - c) // len(nums) - c: 是数子位置为0总和
 	}
 	return count
