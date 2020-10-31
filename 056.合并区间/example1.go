@@ -10,11 +10,11 @@ func merge(intervals [][]int) [][]int {
 	})
 	var cs []int // 上一个合并后的临时元素
 	for _, s := range intervals {
-		if len(ret) == 0 || cs[1] < s[0] { // 不能合并
+		if len(ret) == 0 || cs[1] < s[0] { // cs[1] < s[0] 不能合并的唯一情况,s或者合并后的不会加入到ret
 			ret = append(ret, s)
 			cs = s
-		} else if cs[1] >= s[0] && cs[1] < s[1] { // 能合并，just 扩展y坐标即可, cs[1] >= s[0]可以不写，因为上一个条件判断了cs[1] < s[0]操作
-			cs[1] = s[1] // 能合并 改变c的y坐标
+		} else if s[0] <= cs[1] && cs[1] < s[1] { // 能合并，just 扩展y坐标即可, cs[1] >= s[0]可以不写，因为上一个条件判断了cs[1] < s[0]操作
+			cs[1] = s[1] // 能合并 改变c的y坐标，选择更大的值
 		}
 	}
 	return ret
