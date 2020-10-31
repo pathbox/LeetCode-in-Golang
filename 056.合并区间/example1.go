@@ -17,5 +17,5 @@ func merge(intervals [][]int) [][]int {
 			cs[1] = s[1] // 能合并 改变c的y坐标，选择更大的值
 		}
 	}
-	return ret
+	return ret // 返回的是没有被合并的集合
 }
