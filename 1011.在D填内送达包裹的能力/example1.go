@@ -21,7 +21,7 @@ func shipWithinDays(weights []int, D int) int {
 	return left
 }
 
-// 指定运载能力cap能否在D天内运完所有货物
+// 如果载重为 cap，是否能在 D 天内运完货物？不断的尝试不同的cap，最终会得到一个合适的cap
 func canFinish(weights []int, cap, D int) bool {
 	daySum, day := 0, 1
 	for i := 0; i < len(weights); {
