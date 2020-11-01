@@ -4,7 +4,7 @@ package LeetCode055
 func canJump(nums []int) bool {
 	max, ln := 0, len(nums)-1
 	for i := 0; i <= ln; i++ {
-		if i <= max { // 当前下标在能跳到的max内
+		if max >= i { // 当前下标在能跳到的max内
 			tmp := i + nums[i] // 当前位置能跳到多远
 			if tmp >= ln {     // 如果能跳过最后一个元素则说明可以跳过
 				return true
