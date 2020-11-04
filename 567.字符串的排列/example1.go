@@ -11,11 +11,11 @@ func checkInclusion(s1, s2 string) bool {
 	}
 
 	for i := 0; i < len(s2)-len(s1); i++ {
-		if cnt1 == cnt2 {
+		if cnt1 == cnt2 { // 两个窗口相等
 			return true
 		}
 		cnt2[s2[i]-'a']--
-		cnt2[s2[i+len(s1)]-'a']++
+		cnt2[s2[i+len(s1)]-'a']++ // 窗口大小就是len(s1)
 	}
 	return cnt1 == cnt2
 }
