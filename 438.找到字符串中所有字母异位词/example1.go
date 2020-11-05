@@ -17,7 +17,8 @@ func findAnagrams(s string, p string) []int {
 		if cnt1 == cnt2 { // 两个窗口相等
 			res = append(res, i)
 		}
-		cnt2[s[i]-'a']--
+		cnt2[s[i]-'a']-- // 左边窗口移动
+		// 右边窗口移动
 		if i+lp < ls {
 			cnt2[s[i+lp]-'a']++ // 窗口大小就是lp
 		}
