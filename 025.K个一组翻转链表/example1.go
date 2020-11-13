@@ -6,14 +6,14 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 
 	for head != nil {
 		tail := pre
-		for i := 0; i < k; i++ {
-			tail = tail.Next
-			if tail == nil {
+		for i := 0; i < k; i++ { // 每k个一组
+			tail = tail.Next // tail 往前走k步
+			if tail == nil { // 到结尾了
 				return dummy.Next
 			}
 		}
 		next := tail.Next
-		head, tail = reverse(head, tail)
+		head, tail = reverse(head, tail) // head -> tail 一段给反转了
 		pre.Next = head
 		tail.Next = next
 		pre = tail
@@ -23,13 +23,13 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 }
 
 func reverse(head, tail *ListNode) (*ListNode, *ListNode) {
-	prev := tail.Next
-	p := head
+	prev := tail.Next // prev一开始设为tail.Next，想想prev设为nil的情况
+	cur := head
 	for prev != tail {
-		next := p.Next
-		p.Next = prev
-		prev = p
-		p = next
+		next := cur.Next
+		cur.Next = prev
+		prev = cur
+		cur = next
 	}
-	return tail, head
+	return tail, head // 这一段反转后返回
 }
