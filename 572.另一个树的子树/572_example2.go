@@ -11,6 +11,16 @@ func isSubtree(s *TreeNode, t *TreeNode) bool {
 		return false
 	}
 	return isSubtree(s.Left, t) || equal(s, t) || isSubtree(s.Right, t)
+	/*
+		if equal(s, t) {
+			return true
+		} else if isSubtree(s.Left, t) {
+			return true
+		} else if isSubtree(s.Right, t) {
+			return true
+		}
+		return false
+	*/
 }
 
 func equal(s, t *TreeNode) bool {

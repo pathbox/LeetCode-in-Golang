@@ -23,7 +23,7 @@ func copyRandomList(head *Node) *Node {
 		next := cur.Next.Next
 		curCopy := cur.Next
 		if cur.Random != nil {
-			curCopy.Random = cur.Random.Next
+			curCopy.Random = cur.Random.Next // 处理Random
 		}
 		cur = next
 	}
@@ -34,7 +34,7 @@ func copyRandomList(head *Node) *Node {
 		curCopy := cur.Next
 		cur.Next = next
 		if next != nil {
-			curCopy.Next = next.Next
+			curCopy.Next = next.Next // 处理Next
 		}
 		cur = next
 	}
