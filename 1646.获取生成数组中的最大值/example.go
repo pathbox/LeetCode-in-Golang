@@ -1,5 +1,11 @@
 package LeetCode1646
 
+/*
+nums[0] = 0
+nums[1] = 1
+当 2 <= 2 * i <= n 时，nums[2 * i] = nums[i]
+当 2 <= 2 * i + 1 <= n 时，nums[2 * i + 1] = nums[i] + nums[i + 1]
+*/
 func getMaximumGenerated(n int) int {
 	if n < 2 {
 		return n
