@@ -36,8 +36,7 @@ func IsCBT(root *Node) bool {
 		}
 		if l != nil {
 			queue = append(queue, l)
-		}
-		if r != nil {
+		} else if r != nil {
 			queue = append(queue, r)
 		} else {
 			leaf = true // 表示此时的node是叶子节点

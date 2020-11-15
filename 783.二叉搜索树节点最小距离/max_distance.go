@@ -7,15 +7,16 @@ func maxDistance(root *Node) int {
 	return postOrder(root)
 }
 
+// 后序遍历
 func posOrder(node *Node) int {
 	if node == nil {
 		res = 0
 		return 0
 	}
 	lm := posOrder(node.Left)
-	maxLeft = res
+	maxLeft := res
 	rm := posOrder(node.Right)
-	maxRight = res
+	maxRight := res
 	curMax := maxLeft + maxRight + 1
 	res = max(maxLeft, maxRight) + 1
 	return max(max(lm, rm), curMax)
