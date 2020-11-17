@@ -19,22 +19,24 @@ func dfs(root *TreeNode, voyage, res *[]int) bool {
 	if root == nil {
 		return true
 	}
-	// 根节点的值和voyage第0个元素不符，无法通过反转节点使使先序遍历符合voyage
-	if root.Val != (*voyage)[0] {
+	// 根节点的值和voyage第0个元素不符，无法通过反转节点使先序遍历符合voyage
+	if root.Val != (*voyage)[0] { // 这一步是在比较
 		*res = []int{-1}
 		return false
 	}
+	// 一次翻转的机会,查看是否需要进行翻转
 	// 当且仅当根节点的左右节点都不为空，且右儿子的值等于voyage的第1个元素，需要反转根节点的左右儿子
-	if root.Left != nil && root.Right != nil && root.Right.Val == (*voyage)[0] {
+	if root.Left != nil && root.Right != nil && root.Right.Val == (*voyage)[1] {
 		*res = append(*res, root.Val)
 		root.Left, root.Right = root.Right, root.Left
 	}
 	// 消耗掉voyage第0个元素
 	*voyage = (*voyage)[1:]
+	// 属于前序比较
 	// 如果对左儿子递归的结果为false，就进行剪枝操作
 	ok := dfs(root.Left, voyage, res)
 	if !ok {
-		return false
+		return false // 左子树不满足就返回了，不用继续
 	}
 	return dfs(root.Right, voyage, res)
 }
