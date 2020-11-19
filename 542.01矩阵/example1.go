@@ -15,8 +15,8 @@ func updateMatrix(matrix [][]int) [][]int {
 			}
 		}
 	}
-	direction := [][]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
-	for len(queue) > 0 { // 这里就是 BFS 模板操作了
+	direction := [][]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}} // 上下左右遍历的好方法
+	for len(queue) > 0 {                                   // 这里就是 BFS 模板操作了
 		point := queue[0]
 		queue = queue[1:]
 		for _, v := range direction {
