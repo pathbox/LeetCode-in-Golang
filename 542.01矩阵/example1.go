@@ -30,10 +30,3 @@ func updateMatrix(matrix [][]int) [][]int {
 	}
 	return matrix
 }
-
-func dfs(matrix [][]int, cm *[][]int, i, j int) {
-	if matrix[i][j] == 0 {
-		cm[i][j] = 0
-	}
-
-}
