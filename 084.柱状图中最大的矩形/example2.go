@@ -1,7 +1,5 @@
 package LeetCode084
 
-import "fmt"
-
 func largestRectangleArea(heights []int) int {
 	// 加入哨兵值，便于原先heights中的最后位置的值弹出
 	heights = append(heights, 0)
@@ -19,7 +17,6 @@ func largestRectangleArea(heights []int) int {
 			topIndex := stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
 			// 面积计算公式为：当前栈顶高度 * (左右两边的坐标减去1)
-			fmt.Println(stack[len(stack)-1], topIndex-1)
 			result = max(result, heights[topIndex]*(k-stack[len(stack)-1]-1))
 		}
 		// 栈前面都为比当前值小的时候，无法将栈顶值卡在中间了
