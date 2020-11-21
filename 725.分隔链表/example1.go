@@ -40,7 +40,7 @@ func splitListToParts(root *ListNode, k int) []*ListNode {
 		for j := 1; j < width; j++ {
 			p = p.Next
 		}
-		if left > 0 { // 剩下的分配可以在一个新的循环中，也可以在同一个循环中
+		if left > 0 { // 剩下的分配，每轮分配一次
 			left--
 			p = p.Next
 		}
