@@ -1,5 +1,8 @@
 package LeetCode1638
 
+/*
+O(mn*min(mn)) O(1)
+*/
 func countSubstrings(s, t string) int {
 	m := len(s)
 	n := len(t)
