@@ -23,7 +23,7 @@ func constructFromPrePost(pre []int, post []int) *TreeNode {
 	n := len(pre)
 	for i := 0; i < len(post); i++ {
 		if pre[1] == post[i] { // pre的下一位pre[1]去post定位左子树
-			leftCount := i + 1
+			leftCount := i + 1 // 需要+1 因为是右开区间
 			root.Left = constructFromPrePost(pre[1:leftCount+1], post[0:leftCount])
 			root.Right = constructFromPrePost(pre[leftCount+1:n], post[leftCount:n-1])
 			break
