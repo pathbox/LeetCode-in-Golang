@@ -7,12 +7,12 @@ package LeetCode496
 
 */
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
-	m := make(map[int]int) // val 是key右边比其大的值
-	stack := make([]int, 0)
+	m := make(map[int]int)  // val 是key右边比其大的值
+	stack := make([]int, 0) // 单调递减栈
 
 	for i := 0; i < len(nums2); i++ {
-		top := stack[len(stack)-1]
-		for len(stack) != 0 && nums2[i] > top {
+		for len(stack) != 0 && nums2[i] > stack[len(stack)-1] {
+			top := stack[len(stack)-1]
 			m[top] = nums2[i]
 			stack = stack[:len(stack)-1]
 		}
