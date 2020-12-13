@@ -9,7 +9,7 @@ func rightBound(nums []int, target int) int {
 		} else if nums[mid] > target {
 			right = mid - 1
 		} else if nums[mid] == target {
-			// 锁定右边界，缩小右边界
+			// 锁定右边界，往右缩小区域 缩小搜索区间的下界
 			left = mid + 1
 		}
 	}

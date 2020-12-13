@@ -1,5 +1,10 @@
 package LeetCode1139
 
+// https://leetcode-cn.com/problems/largest-1-bordered-square/solution/java-dong-tai-gui-hua-by-resolmi/
+
+// 首先定义DP数组
+// dp[i][j][0]: i,j左边连续的1的个数（包括自身）
+// dp[i][j][1]: i,j上边连续的1的个数（包括自身）
 func largest1BorderedSquare(grid [][]int) int {
 	var dp [101][101][2]int
 
@@ -21,11 +26,12 @@ func largest1BorderedSquare(grid [][]int) int {
 			} else {
 				dp[i][j][1] = dp[i][j-1][1] + 1
 			}
+
+			// 四条“边” dp[i][j][0],dp[i][j][1],dp[i-maxLine+1][j][1],dp[i][j-maxLine+1][0]
 			maxLine := min(dp[i][j][0], dp[i][j][1]) // 边长应该是较短的那一个
 			// 在 maxLine > res的前提下
 			for maxLine > res {
 				// 另外两条边的长度也大于maxLine 说明maxLine是最合适的边长,要不然说明maxLine太长了
-				// 为什么 i-maxLine不会超出数组边界？因为dp [101][101][2]int 已经定义出了数组长度，如果没有这样定义长度，需要i和j从grid的边长最长的位置开始
 				if dp[i-maxLine+1][j][1] >= maxLine && dp[i][j-maxLine+1][0] >= maxLine {
 					res = maxLine // 取更短的边为结果
 				}
