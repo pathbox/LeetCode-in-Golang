@@ -4,7 +4,7 @@ import "sort"
 
 type Twitter struct {
 	Time    int                 //全局时间戳
-	Follows map[int]map[int]int //每个用户的关注池，3个int分别为：主用户id、被关注的用户 id、被关注的用户是否存在（冗余字段，可以不管）
+	Follows map[int]map[int]int //每个用户的关注池，3个int分别为：主用户id、粉丝的用户 id、被关注的用户是否存在（冗余字段，可以不管）
 	Tweets  map[int]map[int]int //每个用户的tweet池, 3个int分别为：主用户id、tweet id、 tweet 时间戳
 }
 
@@ -34,7 +34,7 @@ func (this *Twitter) PostTweet(userId int, tweetId int) {
 
 /** userId follows a followee. If the operation is invalid, it should be a no-op. */
 func (this *Twitter) Follow(userId int, followeeId int) {
-	if userId == followeeId { //直接过滤掉“自己关注自己”这种情况（对输出结果无影响），简单粗暴
+	if userId == followeeId { // 直接过滤掉“自己关注自己”这种情况（对输出结果无影响），简单粗暴
 		return
 	}
 	f, ok := this.Follows[userId]
@@ -47,8 +47,8 @@ func (this *Twitter) Follow(userId int, followeeId int) {
 
 /** userId unfollows a followee. If the operation is invalid, it should be a no-op. */
 func (this *Twitter) Unfollow(userId int, followeeId int) {
-	if f, ok := this.Follows[userId]; ok { //获取该用户的关注池
-		delete(f, followeeId) //取消关注
+	if f, ok := this.Follows[userId]; ok { // 获取该用户的关注池
+		delete(f, followeeId) // 取消关注
 	}
 }
 
