@@ -19,11 +19,11 @@ func maximalRectangle(matrix [][]byte) int {
 		right[i] = n
 	}
 	for i := 0; i < m; i++ {
-		cur_left, cur_right := 0, n
+		cur_left, cur_right := 0, n // 每次的初始化
 		//更新height
 		for j := 0; j < n; j++ {
 			if matrix[i][j] == '1' {
-				height[j]++
+				height[j]++ // 在上一行(上一次)的基础上++，要不变为0
 			} else {
 				height[j] = 0
 			}
@@ -31,7 +31,7 @@ func maximalRectangle(matrix [][]byte) int {
 		//更新left
 		for j := 0; j < n; j++ {
 			if matrix[i][j] == '1' {
-				left[j] = int(math.Max(float64(left[j]), float64(cur_left)))
+				left[j] = int(math.Max(float64(left[j]), float64(cur_left))) // 取的更大值，left值更大，实际上的效果是缩小矩形宽度
 			} else {
 				left[j] = 0
 				cur_left = j + 1
@@ -40,7 +40,7 @@ func maximalRectangle(matrix [][]byte) int {
 		//更新right
 		for j := n - 1; j >= 0; j-- {
 			if matrix[i][j] == '1' {
-				right[j] = int(math.Min(float64(right[j]), float64(cur_right)))
+				right[j] = int(math.Min(float64(right[j]), float64(cur_right))) // 取更小值，right值更小，实际上的效果是缩小矩形宽度
 			} else {
 				right[j] = n
 				cur_right = j
