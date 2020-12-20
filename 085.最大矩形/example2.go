@@ -12,7 +12,7 @@ func maximalRectangle(matrix [][]byte) int {
 	var result int
 	for row := 0; row < rowNum; row++ {
 		for col := 0; col < colNum; col++ {
-			if matrix[i][j] == '1' {
+			if matrix[row][col] == '1' {
 				heights[col] += 1
 			} else {
 				heights[col] = 0
