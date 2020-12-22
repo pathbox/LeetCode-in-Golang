@@ -1,28 +1,30 @@
 package LeetCode033
 
+// https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/solution/yi-wen-jie-jue-4-dao-sou-suo-xuan-zhuan-pai-xu-s-3/
 func search(nums []int, target int) int {
-	lo, lh := 0, len(nums)-1
-
-	for lo <= lh {
-		mid := lo + (lh-lo)/2
+	if len(nums) == 0 {
+		return -1
+	}
+	left, right, mid := 0, len(nums)-1, 0
+	for left <= right {
+		mid = (left + right) / 2
 		if nums[mid] == target {
 			return mid
 		}
-
-		// 先根据 nums[mid] 与 nums[lo] 的关系判断 mid 是在左段还是右段
-		if nums[mid] >= nums[lo] {
-			if target >= nums[lo] && target < nums[mid] {
-				lh = mid - 1
+		// [left,mid] 连续递增
+		if nums[left] <= nums[mid] {
+			if nums[left] <= target && target <= nums[mid] {
+				right = mid - 1 // 在左侧 [left,mid) 查找
 			} else {
-				lo = mid + 1
+				left = mid + 1
 			}
-		} else {
-			if target > nums[mid] && target <= nums[lh] {
-				lo = mid + 1
+		} else { // [mid,right] 连续递增
+			if nums[mid] <= target && target <= nums[right] {
+				left = mid + 1 // 在右侧 (mid,right] 查找
 			} else {
-				lh = mid - 1
+				right = mid - 1
 			}
 		}
 	}
-	return -1 // 没有找到匹配
+	return -1
 }
