@@ -6,9 +6,9 @@ func findMin(nums []int) int {
 		mid := left + (right-left)>>2
 		// 只和right边比较即可
 		if nums[mid] < nums[right] {
-			right = mid
+			right = mid // 最小值可能是mid，所以区域可以从mid开始
 		} else if nums[mid] > nums[right] {
-			left = mid + 1
+			left = mid + 1 // left=mid 可以吗？不可以，因为已经知道最小值不可能是mid，right还更小
 		} else if nums[mid] == nums[right] {
 			right--
 		}
