@@ -17,13 +17,13 @@ func findMin(nums []int) int {
 	}
 
 	left, right := 0, len(nums)-1
-	if nums[right] > nums[left] {
+	if nums[right] > nums[left] { // 说明 left-right没有旋转，是递增区域，则left就是最小值的位置，如果有旋转，nums[right] 必定小于 nums[left]，因为在没旋转的情况下，right是left的前一位
 		return nums[left]
 	}
 
 	for left <= right {
 		mid := left + (right-left)/2
-		// 找到了拐点 正常情况：nums[mid-1]<=nums[mid]<=nums[mid+1]，其他情况就是拐点
+		// 找到了拐点 正常情况：nums[mid-1]<=nums[mid]<=nums[mid+1]，其他情况就是拐点 即最小值
 		if nums[mid] > nums[mid+1] {
 			return nums[mid+1]
 		}

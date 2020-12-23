@@ -7,10 +7,10 @@ func findMin(nums []int) int {
 			return nums[left]
 		}
 		mid := left + (right-left)>>1
-		if nums[left] <= nums[mid] { // [left,mid] 连续递增，则在 [mid+1,right] 查找
+		if nums[left] <= nums[mid] { // [left,mid] 连续递增，则在 [mid+1,right] 查找 拐点在[mid+1,right]
 			left = mid + 1
 		} else {
-			right = mid // [left,mid] 不连续，在 [left,mid] 查找
+			right = mid // [left,mid] 不连续，在 [left,mid] 查找 拐点在[left,mid]
 		}
 	}
 	return -1

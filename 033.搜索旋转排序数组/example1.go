@@ -11,6 +11,7 @@ func search(nums []int, target int) int {
 		if nums[mid] == target {
 			return mid
 		}
+		// 两种连续递增的情况，判断target是否在连续递增的区间中
 		// [left,mid] 连续递增
 		if nums[left] <= nums[mid] {
 			if nums[left] <= target && target <= nums[mid] {
