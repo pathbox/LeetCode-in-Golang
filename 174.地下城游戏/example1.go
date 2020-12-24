@@ -1,7 +1,7 @@
 package LeetCode174
 
 import "math"
-
+// f(0,0)+dungeon[0][0]=min(f(0+1,0),f(0,0+1)) dp[i][j] 表示从坐标 (i,j)(i,j) 到终点所需的最小初始值 最小的初始值是不会为负数的
 func calculateMinimumHP(dungeon [][]int) int {
 	n, m := len(dungeon), len(dungeon[0])
 	dp := make([][]int, n+1)
@@ -15,7 +15,7 @@ func calculateMinimumHP(dungeon [][]int) int {
 	for i := n - 1; i >= 0; i-- {
 		for j := m - 1; j >= 0; j-- {
 			minn := min(dp[i+1][j], dp[i][j+1])
-			dp[i][j] = max(minn-dungeon[i][j], 1)
+			dp[i][j] = max(minn-dungeon[i][j], 1) //反向 dp dp[i][j]=max{1,min{dp[i+1][j],dp[i][j+1]}−dungeon[i][j]}
 		}
 	}
 	return dp[0][0]
