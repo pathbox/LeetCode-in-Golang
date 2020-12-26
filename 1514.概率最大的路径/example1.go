@@ -11,15 +11,15 @@ func maxProbability(n int, edges [][]int, succProb []float64, start int, end int
     	from,to:=edge[0],edge[1]
     	if nums[from]==nil{
     		nums[from] = []Edge{{val: to,prob: succProb[i]}}
-		}else {
-			nums[from] = append(nums[from],Edge{val: to,prob: succProb[i]})
+			}else {
+				nums[from] = append(nums[from],Edge{val: to,prob: succProb[i]})
+			}
+			if nums[to]==nil{
+				nums[to] =[]Edge{{val: from,prob: succProb[i]}}
+			}else {
+				nums[to] = append(nums[to],Edge{val: from,prob: succProb[i]})
+			}
 		}
-		if nums[to]==nil{
-			nums[to] =[]Edge{{val: from,prob: succProb[i]}}
-		}else {
-			nums[to] = append(nums[to],Edge{val: from,prob: succProb[i]})
-		}
-	}
 	prob:=make([]float64,n)
 	prob[start] = 1.0
 	nodes:=make([]Edge,0)
