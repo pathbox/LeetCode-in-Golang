@@ -15,13 +15,14 @@ func verifyPostorder(postorder []int) bool {
 	return juage(postorder, 0, len(postorder)-1)
 }
 
-func juage(postorder []int, strat, end int) bool {
-	if strat >= end {
+func juage(postorder []int, start, end int) bool {
+	// 返回条件
+	if start >= end {
 		return true
 	}
 	var i int
 	//从前面开始遍历，小于的当前根元素的值是左子树的，当找到第一个大于当前根元素的值，可以确定后半段的元素都应是在当前节点的右子树
-	for i = strat; i < end; i++ {
+	for i = start; i < end; i++ {
 		if postorder[i] > postorder[end] {
 			break
 		}
@@ -32,6 +33,6 @@ func juage(postorder []int, strat, end int) bool {
 			return false
 		}
 	}
-	//递归检查左子树和右子树部分
-	return juage(postorder, strat, i-1) && juage(postorder, i, end-1)
+	//递归检查左子树和右子树部分 postorder[end]已经不需要继续检查
+	return juage(postorder, start, i-1) && juage(postorder, i, end-1)
 }
