@@ -47,7 +47,7 @@ func minWindow(s string, t string) string {
 				// 因为win里面的字符数可能比较多，如有10个A，但需要的字符数量可能为3
 				// 所以在压死骆驼的最后一根稻草时，match才减一，这时候才跳出循环
 				if win[c] == need[c] {
-					match--
+					match-- // 因为 win[c]-- 是必须操作，执行了，win[c] == need[c] 就肯定不一致了，match就需要--
 				}
 				win[c]--
 			}
