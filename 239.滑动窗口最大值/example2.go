@@ -9,7 +9,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 	result := make([]int, 0)
 
 	for i, v := range nums {
-		if i >= k && window[0] <= i-k { // // if the left-most index is out of window, remove it 移动窗口相当于left++
+		if i >= k && window[0] <= i-k { // // if the left-most index is out of window, remove it 移动窗口相当于left++  left会在 i-k 到i之间
 			window = window[1:]
 		}
 
