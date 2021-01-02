@@ -7,7 +7,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 		return []int{}
 	}
 
-	window, res := []int{}, []int{}
+	window, res := []int{}, []int{} // window存的是索引 是单调减队列 window[0]始终是最大值
 	for i, x := range nums {
 		if i >= k && window[0] <= i-k { // window[0]已经进入了res，在这一轮去除
 			window = window[1:]
@@ -16,7 +16,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 			window = window[:len(window)-1]
 		}
 		window = append(window, i) // 将当前索引入队列,比x值小的索引都出了队列 单调队列 单调栈
-		if i >= k-1 {              // 窗口是k-1
+		if i >= k-1 {              // 窗口是k-1 i索引满足窗口比较了
 			res = append(res, nums[window[0]]) // window[0]存的是滑动窗口的最大值,保证window[0]存的是当前窗口最大值的索引
 		}
 	}
