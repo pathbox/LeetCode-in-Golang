@@ -2,6 +2,7 @@ package LeetCode480
 
 import "sort"
 
+// https://leetcode-cn.com/problems/sliding-window-median/solution/golang-176ms-er-fen-cha-zhao-by-resara/
 func medianSlidingWindow(nums []int, k int) []float64 {
 	knums := make([]int, k)
 	copy(knums, nums[:k])
