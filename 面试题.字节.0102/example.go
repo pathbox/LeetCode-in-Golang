@@ -13,15 +13,16 @@ func containExactly(str, aim string) int {
 	inValidTimes := 0
 	// 先让窗口拥有M个字符
 	for ; R < M; R++ {
-		count[aim[R]]--
-		if count[aim[R]] <= 0 {
+		count[str[R]]--
+		if count[str[R]] <= 0 {
 			inValidTimes++
 		}
 	}
 
 	for ; R < len(str); R++ {
+		// 判断前一个窗口符合否
 		if inValidTimes == 0 {
-			return R - M
+			return R - M // 返回left索引
 		}
 		count[aim[R]]--
 		if count[str[R]] <= 0 {
