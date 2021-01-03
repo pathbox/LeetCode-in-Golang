@@ -12,7 +12,5 @@ func numWaterBottles(numBottles int, numExchange int) int {
 		if a == 0 {
 			return res
 		}
-
 	}
-	return res
 }
