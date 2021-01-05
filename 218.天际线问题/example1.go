@@ -6,6 +6,7 @@ type boxing struct {
 	node, pos, height, side int
 }
 
+// https://leetcode-cn.com/problems/the-skyline-problem/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by--45/
 func getSkyline(buildings [][]int) [][]int {
 	// 标记并排序输入形状所有的拐点，每个矩形两个点。
 	var box []boxing
