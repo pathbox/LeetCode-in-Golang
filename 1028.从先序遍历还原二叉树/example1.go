@@ -9,12 +9,14 @@ type TreeNode struct {
 func recoverFromPreorder(S string) *TreeNode {
 	path, pos := []*TreeNode{}, 0
 	for pos < len(S) {
-		level := 0
+		level := 0 // level初始值
+		// pos是不断的往前增加的
 		for S[pos] == '-' {
 			level++
 			pos++
 		}
 		value := 0
+		// 计算当前value值
 		for ; pos < len(S) && S[pos] >= '0' && S[pos] <= '9'; pos++ {
 			value = value*10 + int(S[pos]-'0')
 		}
