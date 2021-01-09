@@ -15,11 +15,12 @@ func deepestLeavesSum(root *TreeNode) int {
 	return sum
 }
 
+// 遍历树的深度的变种
 func dfs(root *TreeNode, level int) {
 	if root == nil {
 		return
 	}
-
+	// 判断深度 - 大于最大深度则重置结果值，等于则相加，小于不做任何操作
 	if level > max {
 		max = level
 		sum = root.Val
