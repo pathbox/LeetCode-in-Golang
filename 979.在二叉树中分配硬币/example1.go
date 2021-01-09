@@ -23,7 +23,7 @@ func dfs(root *TreeNode) int {
 	l := dfs(root.Left)
 	r := dfs(root.Right)
 	res += abs(l) + abs(r)
-	return l + r + root.Val - 1
+	return l + r + root.Val - 1 // 留下一个硬币，剩下的移走
 }
 
 func abs(v int) int {
