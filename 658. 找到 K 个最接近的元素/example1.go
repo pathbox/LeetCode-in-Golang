@@ -14,3 +14,5 @@ func findClosestElements(arr []int, k int, x int) []int {
 	}
 	return arr[start : end+1]
 }
+
+// O(n) O(1)
