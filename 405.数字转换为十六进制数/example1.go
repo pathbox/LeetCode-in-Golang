@@ -5,7 +5,7 @@ func toHex(num int) string {
 		return "0"
 	}
 	if num < 0 {
-		num += 1 << 32
+		num += 1 << 32 // 对负数取反加1
 	}
 	mp := map[int]string{
 		0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9",
@@ -17,7 +17,7 @@ func toHex(num int) string {
 		num /= 16
 	}
 	str := ""
-	for i := len(bitArr)-1; i>=0; i-- {
+	for i := len(bitArr) - 1; i >= 0; i-- {
 		str += bitArr[i]
 	}
 	return str
