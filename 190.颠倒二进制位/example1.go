@@ -1,5 +1,6 @@
 package LeetCode190
 
+// https://leetcode-cn.com/problems/reverse-bits/solution/zhi-qi-ran-zhi-qi-suo-yi-ran-wei-yun-suan-jie-fa-x/
 func reverseBits(num uint32) uint32 {
 	num = (num >> 16) | (num << 16)
 	num = ((num & 0xff00ff00) >> 8) | ((num & 0x00ff00ff) << 8)
@@ -13,7 +14,7 @@ func reverseBits(num uint32) uint32 {
 	ret := uint32(0)
 	power := uint32(31)
 	for num != 0 {
-		ret += (num & 1) << power
+		ret += ret<<1 + num&1
 		num = num >> 1
 		power -= 1
 	}
