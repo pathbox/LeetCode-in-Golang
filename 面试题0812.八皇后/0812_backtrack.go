@@ -33,15 +33,15 @@ func backTrack(row int, tmp [][]rune, res *[][]string) {
 	}
 }
 
-// 2.校验
+// 2.校验  都是校验上半部分即可，下半部分还没有Q的安排
 func valid(row, col int, res [][]rune) bool {
-	for i := 0; i < col+1; i++ {
+	for i := 0; i < col; i++ {
 		// 1.列检测
 		if res[row][i] == 'Q' {
 			return false
 		}
 	}
-	for j := 0; j < row+1; j++ {
+	for j := 0; j < row; j++ {
 		// 2.行检测
 		if res[j][col] == 'Q' {
 			return false
