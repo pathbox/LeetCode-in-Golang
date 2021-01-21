@@ -33,7 +33,7 @@ func backTrack(row int, tmp [][]rune, res *[][]string) {
 	}
 }
 
-func valid(row, col int, res  [][]rune)bool {
+func valid(row, col int, res [][]rune) bool {
 	for i := 0; i < col; i++ {
 		if res[row][i] == 'Q' {
 			return false
@@ -46,13 +46,13 @@ func valid(row, col int, res  [][]rune)bool {
 		}
 	}
 
-	for i, j := row-1,col-1; i>=0 && j>= 0; i,j = i-1,j-1 {
+	for i, j := row-1, col-1; i >= 0 && j >= 0; i, j = i-1, j-1 {
 		if res[i][j] == 'Q' {
 			return false
 		}
 	}
 
-	for i, j := row -1; col+1; i >=0 &&j <= len(res); i,j = i-1,j+1 {
+	for i, j := row-1, col+1; i >= 0 && j <= len(res); i, j = i-1, j+1 {
 		if res[i][j] == 'Q' {
 			return false
 		}
