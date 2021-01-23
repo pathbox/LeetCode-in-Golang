@@ -1,8 +1,7 @@
 package LeetCode052
 
-var res int
-
 func totalNQueens(n int) int {
+	res := 0 // 在LeetCode中不能用全局变量 会通不过
 	var tmp = make([][]rune, n)
 	for r := 0; r < n; r++ {
 		for c := 0; c < n; c++ {
@@ -10,13 +9,13 @@ func totalNQueens(n int) int {
 		}
 	}
 
-	backTrack(0, tmp)
+	backTrack(0, &res, tmp)
 	return res
 }
 
-func backTrack(row int, tmp [][]rune) {
+func backTrack(row int, res *int, tmp [][]rune) {
 	if row == len(tmp) {
-		res++
+		*res++
 		return
 	}
 
@@ -25,35 +24,33 @@ func backTrack(row int, tmp [][]rune) {
 			continue
 		}
 		tmp[row][c] = 'Q'
-		backTrack(row+1, tmp)
+		backTrack(row+1, res, tmp)
 		tmp[row][c] = '.'
 	}
 }
 
-func valid(row, col int, tmp [][]rune) bool {
-	for i := 0; i < len(tmp); i++ {
-		if tmp[row][i] == 'Q' {
+func valid(row, col int, res [][]rune) bool {
+	for i := 0; i < col; i++ {
+		if res[row][i] == 'Q' {
 			return false
 		}
 	}
-
-	for i := 0; i < len(tmp); i++ {
-		if tmp[i][col] == 'Q' {
+	for j := 0; j < row; j++ {
+		if res[j][col] == 'Q' {
 			return false
 		}
 	}
-
+	// 3.右下角至左上角检测 以(row,col)为端点，检测左上部分，右下部分不用,因为现在只遍历到row行，下面的row都还没有填Q，因为下一行会继续往上检测
 	for i, j := row-1, col-1; i >= 0 && j >= 0; i, j = i-1, j-1 {
-		if tmp[i][j] == 'Q' {
+		if res[i][j] == 'Q' {
 			return false
 		}
 	}
 
-	for i, j := row-1, col+1; i >= 0 && j <= len(tmp); i, j = i-1, j+1 {
-		if tmp[i][j] == 'Q' {
+	for i, j := row-1, col+1; i >= 0 && j < len(res); i, j = i-1, j+1 {
+		if res[i][j] == 'Q' {
 			return false
 		}
 	}
-
 	return true
 }
