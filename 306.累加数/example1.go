@@ -26,7 +26,7 @@ func dfs(num string, lst int, idx int) bool {
 			break
 		}
 		cur, _ := strconv.Atoi(num[idx:nxtStart]) // 第二个数
-		sum := strconv.Itoa(cur + lst)            // 第一个数和第二个数的和
+		sum := strconv.Itoa(lst + cur)            // 第一个数和第二个数的和
 		dur := len(sum)                           // 第三个数的长度
 		nxtEnd := nxtStart + dur                  // 第三个数的右区间
 		if nxtEnd > n {                           // 如果右区间越界，结束循环
