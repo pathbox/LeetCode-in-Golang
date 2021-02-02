@@ -33,12 +33,12 @@ func dfs(i, j int, board [][]byte, node *TrieNode, result *[]string) {
 		return
 	}
 	c := board[i][j]                             // 当前字符
-	if c == '#' || node.children[c-'a'] == nil { // 访问过了或者字典中没有
+	if c == '#' || node.children[c-'a'] == nil { // 访问过了或者前缀树字典中没有
 		return
 	}
 	node = node.children[c-'a'] // 遍历trie树 取当前node的trie树节点
 
-	if node.word != "" { // 说明在trie树中找到了匹配的单词
+	if node.word != "" { // 说明在trie树中找到了匹配的单词 最后一个字符node word才有值
 		*result = append(*result, node.word)
 		node.word = "" // 防止重复添加
 	}

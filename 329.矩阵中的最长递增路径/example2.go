@@ -29,7 +29,7 @@ func dfs(matrix [][]int, row, col int, memo [][]int) int {
 	}
 	for _, dir := range dirs {
 		newRow, newCol := row+dir[0], col+dir[1]
-		if newRow >= 0 && newRow < rows && newCol >= 0 && newCol < columns {
+		if newRow >= 0 && newRow < rows && newCol >= 0 && newCol < columns && matrix[newRow][newCol] > matrix[row][col] {
 			memo[row][col] = max(memo[row][col], dfs(matrix, newRow, newCol, memo)+1)
 		}
 	}

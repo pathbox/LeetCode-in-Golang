@@ -1,6 +1,6 @@
 package LeetCode392
 
-var cache map[[2]int]int = make(map[[2]int]int)
+var cache map[[2]int]int = make(map[[2]int]int) // 从(i,j)点出发能够得到的最大递增个数
 
 func longestIncreasingPath(matrix [][]int) int {
 	if 0 == len(matrix) {
