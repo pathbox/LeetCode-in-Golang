@@ -4,10 +4,6 @@ var cnt [][]int // 可以在外面定义全局变量 在方法中进行初始化
 func countArrangement(N int) int {
 	cnt = make([][]int, 0)
 	used := make([]int, N)
-	tool := make([]int, N)
-	for i := 0; i < N; i++ {
-		tool[i] = i + 1
-	}
 	cur := make([]int, 0)
 	backtrace(used, cur, N)
 	return len(cnt)
