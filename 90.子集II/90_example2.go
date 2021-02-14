@@ -18,7 +18,7 @@ func backtrack(temp, nums []int, start int) {
 	copy(tmp, temp) // copy一份
 	res = append(res, tmp)
 
-	for i := start; i < len(nums); i++ { // start很关键，这样不会导致[2,1]这种重复的情况，2只会和比它大的数组合
+	for i := start; i < len(nums); i++ { // start很关键，这样不会导致[2,1]这种重复的情况，2只会和比它大的数组合。 i == start的是可以重复的
 		if i != start && nums[i] == nums[i-1] {
 			continue
 		}

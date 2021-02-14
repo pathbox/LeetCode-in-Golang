@@ -1,38 +1,38 @@
 package LeetCode1254
 
 func closedIsland(grid [][]int) int {
-	row := len(grid)
-	col := len(grid[0])
-
-	res := 0
-	for i := 1; i < row; i++ {
-		for j := 1; j < col; j++ {
-			if grid[i][j] == 0 {
-				if dfs(grid, i, j) {
-					res++
-				}
+	num, rowNum, colNum := 0, len(grid), len(grid[0])
+	for row, v1 := range grid {
+		for col, v2 := range v1 {
+			if v2 == 1 {
+				continue
+			}
+			// 如果满足四面环水，则孤岛数量+1
+			if dfs(grid, rowNum, colNum, row, col) {
+				num++
 			}
 		}
 	}
-	return res
+
+	return num
 }
 
-func dfs(grid [][]int, i, j int) bool {
-	row := len(grid)
-	col := len(grid[0])
-	if i < 0 || j < 0 || i >= row || j >= col {
+// 以(i,j)点出发，寻找上下左右周围是否是水,是则返回true,如果是陆地0,则继续移动遍历,如果触碰到边界了,则说明无法构成孤岛
+func dfs(grid [][]int, rowNum, colNum, row int, col int) (b bool) {
+	// 如果触碰到边界了，无法构成孤岛
+	if row < 0 || col < 0 || row >= rowNum || col >= colNum {
 		return false
 	}
-	if grid[i][j] == 1 {
+	// 如果碰到水了，返回正确
+	if grid[row][col] == 1 {
 		return true
 	}
-	grid[i][j] = 1
-	up := dfs(grid, i-1, j)
-	down := dfs(grid, i+1, j)
-	left := dfs(grid, i, j-1)
-	right := dfs(grid, i, j+1)
-	if up && down && left && right {
-		return true
-	}
-	return false
+	// 经过的地方置为海洋
+	grid[row][col] = 1
+	// 需要四个方向都环水
+	up := dfs(grid, rowNum, colNum, row-1, col)
+	down := dfs(grid, rowNum, colNum, row+1, col)
+	left := dfs(grid, rowNum, colNum, row, col-1)
+	right := dfs(grid, rowNum, colNum, row, col+1)
+	return up && down && left && right
 }
