@@ -22,6 +22,7 @@ func Constructor() WordDictionary {
 	}
 }
 
+// 构建对应的trie树
 func (this *WordDictionary) AddWord(word string) {
 	node := this.root
 	for i := 0; i < len(word); i++ {
@@ -47,6 +48,7 @@ func search(word string, node *TrieNode) bool {
 		return node.isEnd // 能够遍历到最后一个node说明search成功
 	}
 
+	// .匹配任意字符，所以遍历node.children
 	if word[0] == '.' {
 		for _, n := range node.children {
 			if search(word[1:], n) {
