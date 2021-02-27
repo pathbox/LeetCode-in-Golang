@@ -1,5 +1,6 @@
 package LeetCode474
 
+// https://leetcode-cn.com/problems/ones-and-zeroes/solution/dong-tai-gui-hua-0-1bei-bao-wen-ti-labuladongdong-/
 func findMaxForm(strs []string, m int, n int) int {
 	statistic := func(str string) (int, int) {
 		var zero, one = 0, 0

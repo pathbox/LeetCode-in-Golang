@@ -11,14 +11,14 @@ func lengthOfLongestSubstring(s string) int {
 
 	for left < len(s) {
 		if right+1 < len(s) && freq[s[right+1]-'a'] == 0 {
-			freq[s[right]-'a']++
+			freq[s[right+1]-'a']++
 			right++
 			// freq[index] > 0 说明有重复值了，移动left缩小范围
-		} else {
+		} else { // 遇到重复的字符情况，肯定是窗口的left和right+1重复(窗口的两边),所以left++
 			freq[s[left]-'a']--
 			left++
 		}
-		result = max(result, right-left+1)
+		result = max(result, right-left+1) // 每次计算一个窗口长度
 	}
 	return result
 }
