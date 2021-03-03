@@ -7,7 +7,7 @@ func intToRoman(num int) string {
 	x := len(intSlice) - 1
 	for num != 0 {
 		n := num
-		for ; x >= 0; x-- {
+		for ; x >= 0; x-- { // x每次都是从最后(最大)的开始找
 			if n >= intSlice[x] {
 				s += roman[x]
 				num -= intSlice[x]
