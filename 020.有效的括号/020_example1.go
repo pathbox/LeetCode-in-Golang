@@ -19,6 +19,7 @@ func isValid(s string) bool {
 			if stackLength == 0 {
 				return false
 			}
+			// 比较当前v和栈顶元素是否匹配 然后出栈
 			if (v == ')' && stack[stackLength-1] == '(') || (v == ']' && stack[stackLength-1] == '[') || (v == '}' && stack[stackLength-1] == '{') {
 				stackLength--
 			} else {

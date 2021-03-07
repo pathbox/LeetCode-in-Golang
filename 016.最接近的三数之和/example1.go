@@ -19,7 +19,7 @@ func threeSumClosest(nums []int, target int) int {
 		}
 	}
 
-	// 三个指针： i j(i+1) k(n-1)
+	// 三个指针： i j(i+1) k(n-1)  first指针是固定的，只由第一个for循环控制。里面的逻辑控制second指针和third指针的移动
 	for i := 0; i < n; i++ {
 		// 保证和上一次枚举的元素不相等
 		if i > 0 && nums[i] == nums[i-1] {

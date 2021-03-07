@@ -21,7 +21,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		head = head.Next
 		i++
 	}
-	//跨过倒数第N个节点 preN 是要删除节点的前一个
+	//跨过倒数第N个节点 preN.Next 是要删除节点的前一个
 	preN.Next = preN.Next.Next
 	return dummy.Next
 }

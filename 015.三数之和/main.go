@@ -1,8 +1,53 @@
-package LeetCode015
+package main
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+	n := []int{3, 0, -2, -1, 1, 2}
+	r1 := threeSum(n)
+	r2 := threeSum2(n)
+	fmt.Println(r1)
+	fmt.Println(r2)
+}
 
 func threeSum(nums []int) [][]int {
+	n := len(nums)
+	sort.Ints(nums)
+	ans := make([][]int, 0)
+
+	for first := 0; first < n; first++ {
+		if first > 0 && nums[first] == nums[first-1] {
+			continue
+		}
+		third := n - 1
+		target := -1 * nums[first]
+
+		for second := first + 1; second < n; second++ {
+			if second > first+1 && nums[second] == nums[second-1] {
+				continue
+			}
+			// 这里是for循环，不是if，不断的让给third--直到条件
+			for second < third && nums[second]+nums[third] > target {
+				third--
+			}
+
+			if second == third {
+				break
+			}
+
+			if nums[second]+nums[third] == target {
+				ans = append(ans, []int{nums[first], nums[second], nums[third]})
+			}
+		}
+	}
+
+	return ans
+}
+
+func threeSum2(nums []int) [][]int {
 	n := len(nums)
 	sort.Ints(nums) // 首先排个序
 	ans := make([][]int, 0)
@@ -35,7 +80,7 @@ func threeSum(nums []int) [][]int {
 				ans = append(ans, []int{nums[first], nums[second], nums[third]})
 			}
 		}
-		// nums[second]+nums[third]+nums[first] < 0 的情况可以不用写，因为外层循环second++就是这个操作
+		// nums[second]+nums[third]+nums[first] < 0 的情况可以不用写，因为外层循环first++就是这个操作
 	}
 	return ans
 }
