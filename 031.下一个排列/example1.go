@@ -20,10 +20,12 @@ func nextPermutation(nums []int) {
 		// swap A[i], A[k]
 		nums[i], nums[k] = nums[k], nums[i]
 	}
-	// reverse A[j:end] 将后半段数反转
+	// reverse A[j:end] 将后半段数反转 让降序变为升序
 	for i, j := j, len(nums)-1; i < j; {
 		nums[i], nums[j] = nums[j], nums[i]
 		i++
 		j--
 	}
 }
+
+// https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/

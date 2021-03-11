@@ -4,7 +4,7 @@ package LeetCode026
 func removeDuplicates(nums []int) int {
 	low := 0
 	for fast := 0; fast < len(nums); fast++ {
-		if nums[low] != nums[fast] { // 如果不相等，其实两个索引都会往后移动，如果相等，则慢索引保持不动，快索引继续往后移动
+		if nums[low] != nums[fast] { // 如果不相等，其实两个索引都会往后移动，如果相等，则慢索引保持不动，快索引继续往后移动。 low 与fast之间的数都是重复的数，都可以被后续不重复的fast覆盖
 			nums[low+1] = nums[fast]
 			low++
 		}
