@@ -18,12 +18,12 @@ func findSubstring(s string, words []string) []int {
 		mp[w]++
 	}
 
-	for i := 0; i < len(s)-k*wlen+1; i++ {
+	for i := 0; i < len(s)-k*wlen+1; i++ { // 每次s移动一个字符
 		var count int
 		mp2 := make(map[string]int)
-		// 遍历每个单词
+		// 遍历每个单词 进行比较
 		for multi := 0; multi < wlen; multi++ {
-			start := i + multi*k
+			start := i + multi*k // 每次跳一个单词的位置
 			word := s[start : start+k]
 			if num, found := mp[word]; found && num > mp2[word] {
 				mp2[word]++
@@ -32,7 +32,8 @@ func findSubstring(s string, words []string) []int {
 				break
 			}
 		}
-		if count == wlen {
+
+		if count == wlen { // 如果每个单词都遍历了，满足条件
 			res = append(res, i)
 		}
 	}
