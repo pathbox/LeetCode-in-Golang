@@ -26,15 +26,16 @@ func findSubstring(s string, words []string) []int {
 			right += wordLen                      // 每次移动wordLen
 			if need[rightWord] > 0 {
 				window[rightWord]++
-				// 比较窗口中的单词和need的窗口
+				// 比较窗口中的单词和need的窗口 window是每次偏移的窗口，match是满足need的单词的计数
 				if window[rightWord] == need[rightWord] { // 当前词频相等
 					match++
 				}
 			}
 
 			// 进行判断
-			// 如果满足了长度，判断是否满足磁盘
+			// 如果满足了长度，都要进行left的便宜
 			if right-left == totalLen {
+				// 判断是否满足词频
 				if match == len(need) {
 					result = append(result, left)
 				}
