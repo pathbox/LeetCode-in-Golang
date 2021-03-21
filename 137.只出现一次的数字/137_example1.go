@@ -23,10 +23,11 @@ func singleNumber(nums []int) int {
 	}
 	return int(res) // 返回32位完整的结果
 }
+
 /*
 func singleNumber(nums []int) int {
 	number, res := 0,0
-	for i :=0; i < 64; i++{
+	for i := 0; i < 64; i++{
 		number = 0
 		for _, k := range nums {
 			number += (k >> i) & 1
@@ -36,4 +37,4 @@ func singleNumber(nums []int) int {
 	return res
 }
 
-*、
+*/

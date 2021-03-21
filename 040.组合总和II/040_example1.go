@@ -19,7 +19,7 @@ func dfs(candidates, nums []int, target, start int, res *[][]int) {
 	}
 
 	for i := start; i < len(candidates); i++ {
-		if i != start && candidates[i] == candidates[i-1] { // *同层节点 数值相同，剪枝 为什么要i != start呢？i = start i-1 是上一次的索引，这两者值是可以相等的
+		if i != start && candidates[i] == candidates[i-1] { // 同层节点 数值相同，剪枝 为什么要i != start呢？i = start i-1 是上一次的索引，这两者值是可以相等的
 			continue
 		}
 		if target < candidates[i] { // 剪枝

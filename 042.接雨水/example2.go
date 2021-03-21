@@ -1,6 +1,6 @@
 package LeetCode042
 
-// 暴力解法
+// 暴力解法 O(n^2)
 func trap(height []int) int {
 	l := len(height)
 	res := 0

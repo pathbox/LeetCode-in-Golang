@@ -1,5 +1,6 @@
 package LeetCode032
 
+// 具体做法是我们始终保持栈底元素为当前已经遍历过的元素中「最后一个没有被匹配的右括号的下标。这样，新的有可能满足的结果是从最后一个没有被匹配的右括号下标之后的字符串开始的
 func longestValidParentheses(s string) int {
 	maxAns := 0
 	stack := []int{}

@@ -3,7 +3,7 @@ package LeetCode067
 func addBinary(a string, b string) string {
 	result := ""
 	flag := 0
-	i, j := len(a)-1, len(b)-1
+	i, j := len(a)-1, len(b)
 	for i >= 0 || j >= 0 { // 从尾部开始,最长的字符遍历完了，就停止
 		t1, t2 := 0, 0
 		// 短的字符串遍历完后，继续操作，它的对应那一位其实就是0
