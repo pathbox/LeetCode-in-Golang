@@ -11,7 +11,7 @@ func longestPalindrome(s string) string {
 
 	start := 0
 	maxlen := 1
-	ans := ""
+
 
 	for r := 0; r < lenth; r++ {
 		dp[r] = make([]bool, lenth)

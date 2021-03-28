@@ -2,7 +2,7 @@ package LeetCode079
 
 func exist(board [][]byte, word string) bool {
 	n := len(board)    // 矩阵长度
-	m := len(board[0]) // 举证宽度
+	m := len(board[0]) // 矩阵宽度
 
 	for i := 0; i < n; i++ {
 		for j := 0; j < m; j++ {

@@ -24,3 +24,5 @@ func maxProduct(words []string) int {
 	}
 	return max
 }
+
+// O(n^2)
