@@ -23,6 +23,7 @@ func dfs(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
+	// last <= root.Val 才对
 	if !dfs(root.Left) || root.Val <= last.Val { // 上一个节点的值应该要是更小的
 		return false
 	}

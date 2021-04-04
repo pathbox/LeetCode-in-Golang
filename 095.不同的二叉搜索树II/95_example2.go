@@ -45,3 +45,13 @@ func doGenerateTrees(left, right int) []*TreeNode {
 	}
 	return trees
 }
+
+// 构造一个搜索二叉树
+func BuildATree(s, e int) *TreeNode{
+	m := (s+e)/2
+	root := &TreeNode{m}
+
+	root.Left = BuildATree(s, m-1)
+	root.Right = BuildATree(m+1, e)
+	return root
+}

@@ -1,4 +1,4 @@
-package LeetCode098
+package LeetCode102
 
 type TreeNode struct {
 	Val   int
