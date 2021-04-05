@@ -15,10 +15,13 @@ func Constructor() MinStack {
 
 func (ms *MinStack) Push(x int) {
 	d := Node{d: x, m: x}
-	top := ms.s[len(ms.s)-1] //入栈前的顶部
-	if len(ms.s) > 0 && top.m < x {
-		d.m = top.m
+	if len(ms.s) > 0 {
+		top := ms.s[len(ms.s)-1] //入栈前的顶部
+		if len(ms.s) > 0 && top.m < x {
+			d.m = top.m
+		}
 	}
+
 	ms.s = append(ms.s, d)
 }
 

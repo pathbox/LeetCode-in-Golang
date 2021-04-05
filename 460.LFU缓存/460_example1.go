@@ -25,7 +25,7 @@ func Constructor(capacity int) LFUCache {
 
 func (this *LFUCache) Get(key int) int {
 	if node, ok := this.cache[key]; ok {
-		this.IncFreq(node) // 约经常被使用的key，freq会不断的增加
+		this.IncFreq(node) // 经常被使用的key，freq会不断的增加
 		return node.val
 	}
 	return -1
