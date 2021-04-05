@@ -15,6 +15,7 @@ func maxSatisfied(customers []int, grumpy []int, X int) int {
 		increase += customers[i] * grumpy[i]
 	}
 	maxIncrease := increase
+	// 以X长度滑动窗口移动
 	for i := X; i < n; i++ {
 		increase = increase - customers[i-X]*grumpy[i-X] + customers[i]*grumpy[i] // i - X 其实是左指针位置， i是右指针
 		maxIncrease = max(maxIncrease, increase)
