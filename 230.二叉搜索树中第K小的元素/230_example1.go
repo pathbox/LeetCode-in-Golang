@@ -8,8 +8,8 @@ type TreeNode struct {
 
 // 可以使用 BST 的特性：BST 的中序遍历是升序序列
 // 通过构造 BST 的中序遍历序列，则第 k-1 个元素就是第 k 小的元素
-// 时间复杂度：O(N)O(N)，遍历了整个树。
-// 空间复杂度：O(N)O(N)，用了一个数组存储中序序列
+// 时间复杂度：O(N)，遍历了整个树。
+// 空间复杂度：O(N)，用了一个数组存储中序序列
 func kthSmallest(root *TreeNode, k int) int {
 	var res []int
 	inOrder(root, &res)

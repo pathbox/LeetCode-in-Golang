@@ -32,7 +32,7 @@ func backtrace(board [][]byte, word string, i, j, k int) bool {
 	tmp := board[i][j]
 	// 重置它是为了回溯往回找的时候避免重复使用，干脆，如果找到它是对的，就直接把它置为 空
 	// 等结束了之后再重置回来
-	board[i][j] = byte(' ') // 避免重复使用
+	board[i][j] = byte(' ') // board[i][j] == word[k]，然后避免重复使用
 
 	// 开始上下左右探测
 	// left

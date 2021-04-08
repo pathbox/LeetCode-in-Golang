@@ -14,4 +14,4 @@ func countNodes(root *TreeNode) int {
 }
 
 // 时间复杂度： O(N)。
-// 空间复杂度： O(d) = O(logN)，其中 dd 指的是树的的高度，运行过程中堆栈所使用的空间
+// 空间复杂度： O(d) = O(logN)，其中 d 指的是树的的高度，运行过程中堆栈所使用的空间

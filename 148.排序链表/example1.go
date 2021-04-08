@@ -21,8 +21,8 @@ func sortList(head *ListNode) *ListNode {
 	// 注意要将链表截断
 	rNext := slow.Next
 	slow.Next = nil
-	r := sortList(rNext)
 	l := sortList(head)
+	r := sortList(rNext)
 	// 2. 合并，将两个list合并为一个
 	return mergeList(l, r)
 }

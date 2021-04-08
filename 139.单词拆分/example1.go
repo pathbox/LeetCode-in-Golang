@@ -26,7 +26,7 @@ func wordBreak(s string, wordDict []string) bool {
 	dp[0] = true
 	//结合dp[i]的意义，i=1表示检查下标0...0所截取的s串(即s[0])；i=len(s)表示检查下标0...len(s)-1所截取的s串(即整个s串)
 	//从s[0]一直遍历到s[0:len(s)-1]
-	for i := 1; i <= sLength; i++ {
+	for i := 1; i <= sLength; i++ { // 为什么是<= 因为s[j:i]是右开区间
 		for j := 0; j < i; j++ {
 			//对于下标0...i-1所截取的s串，将其分为0...j-1和j...i-1两个部分。
 			//dp[j]表示下标0...j-1所截取的s串能否做"单词拆分"，true表示能，false表示不能
