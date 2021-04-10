@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 /*
 小Q在周末的时候和他的小伙伴来到大城市逛街，一条步行街上有很多高楼，共有n座高楼排成一行。
@@ -24,10 +22,41 @@ import (
 
 /*
 原理其实是：从左到右遍历一个得到一个递增的单调栈，从右到左遍历得到一个递增的单调栈
+https://www.liuyixiang.com/post/109198.html
 */
+// func main() {
+// 	arr := []int{5, 3, 8, 3, 2, 5}
+// 	res := make([]int, 0)
+// 	rightLook := make([]int, len(arr))
+// 	stack := make([]int, 0)
+
+// 	for i := len(arr) - 1; i >= 0; i-- { // 倒着遍历
+// 		rightLook[i] = len(stack) // 第一个栈 从栈底到栈顶递减的栈，栈顶到栈底是从小到大，栈底是大数
+// 		// 遍历到当前i，此时stack的元素个数就是以i向右看呈单调递增的楼的数量，也就是能看到的数量
+// 		for len(stack) > 0 && arr[i] >= arr[stack[len(stack)-1]] {
+// 			stack = stack[:len(stack)-1]
+// 		}
+// 		stack = append(stack, i)
+// 	}
+
+// 	stack = make([]int, 0) // 重新置空 用于存第二个单调栈,也是从小到大，栈底是大数
+
+// 	for i := 0; i < len(arr); i++ {
+// 		total := rightLook[i] + 1 + len(stack)
+// 		for len(stack) > 0 && arr[i] >= arr[stack[len(stack)-1]] { // 栈存的是要比当前i楼层还要大的且是当掉递增的单调栈
+// 			stack = stack[:len(stack)-1]
+// 		}
+// 		stack = append(stack, i)
+// 		res = append(res, total)
+// 	}
+
+// 	fmt.Println(res)
+// }
+
 func main() {
 	arr := []int{5, 3, 8, 3, 2, 5}
 	res := make([]int, 0)
+
 	rightLook := make([]int, len(arr))
 	stack := make([]int, 0)
 
@@ -39,16 +68,14 @@ func main() {
 		stack = append(stack, i)
 	}
 
-	stack = make([]int, 0) // 重新置空
-
+	stack = make([]int, 0)
 	for i := 0; i < len(arr); i++ {
 		total := rightLook[i] + 1 + len(stack)
 		for len(stack) > 0 && arr[i] >= arr[stack[len(stack)-1]] {
 			stack = stack[:len(stack)-1]
 		}
-		res = append(res, total)
 		stack = append(stack, i)
+		res = append(res, total)
 	}
-
 	fmt.Println(res)
 }
