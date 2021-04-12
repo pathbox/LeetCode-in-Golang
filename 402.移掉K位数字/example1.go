@@ -15,7 +15,7 @@ func removeKdigits(num string, k int) string {
 			stack = stack[:len(stack)-1]
 			k-- // 剔除一个数字，k 减一
 		}
-		// 条件：如果数字不为空，或者数字为空但是栈不为空 将当前number入栈
+		// 条件：如果数字不为空，或者是栈不为空 将当前number入栈
 		if number != 0 || len(stack) != 0 {
 			stack = append(stack, number)
 		}

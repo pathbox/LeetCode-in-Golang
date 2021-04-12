@@ -1,24 +1,31 @@
 package LeetCode543
 
-import "math"
+var max int
 
 func diameterOfBinaryTree(root *TreeNode) int {
-	m := 0
-	max := &m //现有的最长直径
+	max = 0
 	if root == nil {
 		return 0
 	}
-	depth(root, max)
-	return *max
+
+	depth(root)
+	return max
 }
 
-func depth(root *TreeNode, max *int) int {
+func depth(root *TreeNode) int {
 	if root == nil {
-		return 02
+		return 0
 	}
 
-	a := depth(root.Left, max)
-	b := depth(root.Right, max)
-	*max = int(math.Max(float64(a+b), float64(*max))) //此节点的直径和现有的最长直径比较
-	return int(math.Max(float64(a), float64(b))) + 1  //返回深度
+	l := depth(root.Left)
+	r := depth(root.Right)
+	max = maxF(l+r, max)
+	return maxF(l, r) + 1
+}
+
+func maxF(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

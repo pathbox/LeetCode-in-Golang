@@ -33,8 +33,8 @@ func main() {
 			}
 			stack = stack[:len(stack)-1] // 把 | 出栈
 			reqTime, _ := strconv.Atoi(stack[len(stack)-1])
-			stack = stack[:len(stack)-2] // 把数字和[出栈
-			t := strings.Repeat(strings.Join(sub, ""), reqTime)
+			stack = stack[:len(stack)-2]                        // 把数字和[出栈
+			t := strings.Repeat(strings.Join(sub, ""), reqTime) // 将新构造的字符串入栈
 			stack = append(stack, t)
 		}
 	}

@@ -1,4 +1,12 @@
-package mysort
+package main
+
+import "fmt"
+
+func main() {
+	arr := []int{3, 4, 5, 6, 7, 8, 1, 13}
+	QuickSort(0, len(arr)-1, arr)
+	fmt.Println(arr)
+}
 
 func QuickSort(left, right int, array []int) {
 	var i, j, temp int

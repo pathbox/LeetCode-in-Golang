@@ -6,13 +6,14 @@ func nthSuperUglyNumber(n int, primes []int) int {
 	uglyNums := make([]int, n)
 	uglyNums[0] = 1
 
-	indexes := make([]int, len(primes))
+	indexes := make([]int, len(primes)) // 已有的uglyNums的索引
 	i := 1
 	for i < n {
 		next := math.MaxInt32
 		for j, index := range indexes {
 			next = min(next, primes[j]*uglyNums[index])
 		}
+
 		for j, index := range indexes {
 			if primes[j]*uglyNums[index] == next {
 				indexes[j]++
