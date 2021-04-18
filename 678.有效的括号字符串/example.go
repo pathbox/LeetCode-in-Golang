@@ -34,7 +34,7 @@ func checkValidString(s string) bool {
 	if len(left) == 0 { // 如果左括号刚好匹配完了，说明符合，返回true
 		return true
 	}
-	for i := len(left) - 1; i >= 0; i-- { // 遍历left栈，如果出现left中的下标值大于star的栈顶，说明有 *(的情况存在，是不合法配对,或者没有star与其匹配了
+	for i := len(left) - 1; i >= 0; i-- { // 遍历left栈，如果出现left中的下标值大于star的栈顶，说明有 *(的情况存在，是不合法配对,或者没有star与其匹配了 此时是把*当成右括号
 		if len(star) == 0 || star[len(star)-1] < left[i] {
 			return false
 		}

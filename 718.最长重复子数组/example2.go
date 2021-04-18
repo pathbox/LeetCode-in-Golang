@@ -43,6 +43,6 @@ func min(x, y int) int {
 	return y
 }
 
-// 时间复杂度： O((N + M) \times \min(N, M))O((N+M)×min(N,M))。
+// 时间复杂度： O((N+M)×min(N,M))。
 
-// 空间复杂度： O(1)O(1)
+// 空间复杂度： O(1)
