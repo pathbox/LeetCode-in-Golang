@@ -19,7 +19,7 @@ func numIslands(grid [][]byte) int {
 		}
 	}
 	return res
-}8
+}
 
 func helper(i, j int, grid [][]byte) {
 	grid[i][j] = '0' // i，j这块陆地已经访问过,以当前这块陆地出发，进行上下左右的探测是否仍然为陆地
