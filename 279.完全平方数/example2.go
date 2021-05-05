@@ -1,30 +1,21 @@
 package LeetCode279
 
-import "math"
-
 func numSquares(n int) int {
-	m := int(math.Sqrt(float64(n)))
 	dp := make([]int, n+1)
-
-	dp[0] = 0
 	for i := 1; i <= n; i++ {
-		dp[i] = math.MaxInt64
-	}
-
-	for i := 1; i <= m; i++ {
-		for j := i * i; j <= n; j++ {
-			dp[j] = min(dp[j], dp[j-i*i]+1)
+		dp[i] = n // 最多是n次， 1+1+1+1+1+...+1 n次
+		for j := 1; i-j*j >= 0; j++ {
+			dp[i] = min(dp[i], dp[i-j*j]+1) // 动态转移方程
 		}
 	}
 	return dp[n]
 }
 
-func min(x, y int) int {
-	if x > y {
-		return y
-	} else {
-		return x
+func min(a, b int) int {
+	if a >= b {
+		return b
 	}
+	return a
 }
 
 // https://leetcode-cn.com/problems/perfect-squares/solution/wan-quan-bei-bao-wen-ti-by-wayne-63/
