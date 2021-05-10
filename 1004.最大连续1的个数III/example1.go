@@ -1,27 +1,23 @@
 package LeetCode1004
 
 func longestOnes(A []int, K int) int {
-	if len(A) == 0 {
-		return 0
-	}
-	left, right, maxCount, result := 0, 0, 0, 0
-	count := make(map[int]int)
+	n := len(A)
+	res := 0
+	zeros := 0
 
-	for right < len(A) {
-		c := A[right]
-		if c == 1 {
-			count[c]++
-			maxCount = max(maxCount, count[c])
+	for left, right := 0, 0; right < n; right++ {
+		if A[right] == 0 {
+			zeros++
 		}
-
-		if right-left+1-maxCount > K {
-			count[A[left]]--
+		for zeros > K {
+			if A[left] == 0 {
+				zeros--
+			}
 			left++
 		}
-		result = max(result, right-left+1)
-		right++
+		res = max(res, right-left+1)
 	}
-	return result
+	return res
 }
 
 func max(a, b int) int {
